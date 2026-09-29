@@ -2,7 +2,25 @@
 
 Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure MCP Tunnel. This is a per-user macOS desktop controller and Python bridge. It does not create a ChatGPT account, tunnel, or runtime key. Follow the [illustrated English guide](docs/GETTING_STARTED.md) or [繁體中文圖解](docs/GETTING_STARTED.zh-Hant.md) for more detail.
 
-**Start here / 由這裡開始：** [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [All links / 所有連結](docs/LINKS.md).
+**Start here / 由這裡開始：** [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [English FAQ](docs/FAQ.md) · [繁體中文常見問題](docs/FAQ.zh-Hant.md) · [All links / 所有連結](docs/LINKS.md).
+
+## Requirements / 需求
+
+| Requirement | 需求 |
+|---|---|
+| macOS and a local installation of Blender | macOS 及已安裝在本機的 Blender |
+| Python 3.10+ with Tk; 3.11+ recommended | Python 3.10 或以上並有 Tk；建議 3.11 或以上 |
+| An eligible ChatGPT plan, workspace and region with Secure MCP Tunnel and custom connectors | 方案、工作空間及地區均可使用 Secure MCP Tunnel 和自訂連接器的 ChatGPT |
+| Your own Tunnel ID, runtime key, Blender path and output folder | 自己的 Tunnel ID、runtime key、Blender 路徑及輸出資料夾 |
+
+## Limitations / 限制
+
+- The source app is **not notarized** and **does not bundle Python**. / 此原始碼 App **未經 Apple 公證**，亦**不附 Python**。
+- The tunnel feature is **not available to every account, workspace or region**; installing this repo cannot enable it. / **不是所有帳戶、工作空間或地區**都有通道功能；安裝此 repo 不會開通資格。
+- Each user must reproduce the setup with **their own** Mac, eligible account, tunnel, key and paths. / 每位使用者均須在**自己的** Mac、合資格帳戶、通道、金鑰及路徑重做設定。
+- The recorded Mac test does not cover Intel, full reboot, long soak or real VPN exit-IP rotation. / 已記錄的 Mac 測試不涵蓋 Intel、整機重啟、長時間連續運行或真實 VPN 出口 IP 輪換。
+
+Read the [risk and limitation FAQ / 風險與限制常見問題](docs/FAQ.md) ([繁體中文](docs/FAQ.zh-Hant.md)) and the [connector icon status / 連接器圖示狀態](docs/CONNECTOR_ICON_FIX.md) before setup.
 
 ## Quick start — English
 

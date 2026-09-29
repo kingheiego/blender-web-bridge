@@ -10,9 +10,7 @@
 
 **應看到：**Blender 可開啟、Python/Tk 可用、ChatGPT 內有自己的 App 和通道。**若沒有：**先完成欠缺的上游設定。帳戶或地區不支援時應在這裏停下，不要嘗試改 Mac 的網絡設定來繞過。[故障排解](TROUBLESHOOTING_RC2.md)。
 
-![舊版設定圖解，僅供辨認後續設定階段](images/setup-tab-3.png)
-
-*這是歷史圖解，不能證明你的帳戶已有權限，也不是 rc2 截圖。*
+此處沒有帳戶資格的截圖；請以你自己的 ChatGPT 帳戶畫面核對。後續本機 App 流程可參考[圖解設定頁](SETUP_RC2.html)，但其中圖片是歷史介面。
 
 ## 步驟 1：下載並開啟 repo
 
@@ -27,9 +25,7 @@ cd blender-web-bridge
 
 此 App **未經 Apple 公證**。若 macOS 表示 `Install.command` 來自**「未經識別的開發者」**，確認副本來源可信後，在該檔案上按右鍵（或 Control-click）→ **開啟** → 再確認**開啟**。首次開桌面 App 時如有相同提示，也用同樣方式確認。毋須全面關閉 macOS 安全保護。
 
-**應看到：**repo 根目錄的 `Install.command`，開啟後出現 Terminal 視窗。**若沒有：**確認 ZIP 已解壓、Finder 位於 repo 根目錄；可看[設定圖解](SETUP_RC2.html)。以下舊圖只是下一階段的參考，並非 macOS 警告畫面。
-
-![舊版設定圖解，並非 macOS 安全提示截圖](images/setup-tab-3.png)
+**應看到：**repo 根目錄的 `Install.command`，開啟後出現 Terminal 視窗。**若沒有：**確認 ZIP 已解壓、Finder 位於 repo 根目錄；可看[圖解設定頁](SETUP_RC2.html)。本指南**沒有 Finder 檔案或 macOS 警告的截圖**；下一張圖片只展示安裝後的桌面 App。
 
 ## 步驟 2：執行 Install.command
 
@@ -39,7 +35,7 @@ cd blender-web-bridge
 
 **應看到：**安裝結果有 `ok: true`，桌面有 `.app`。**若沒有：**讀取畫面錯誤；若提示缺少 Python/Tk，安裝適合的官方 macOS Python 再試。若顯示鎖定或還原未完成，看[故障排解](TROUBLESHOOTING_RC2.md)，不要刪除交易紀錄檔。
 
-![安裝後要開啟的 App 之舊版參考圖](images/setup-tab-3.png)
+此處沒有安裝成功畫面截圖。下一步的桌面 App 設定頁圖片是**歷史介面參考**，不是 rc2 截圖。
 
 ## 步驟 3：開啟桌面 App 並儲存設定
 
@@ -57,7 +53,9 @@ cd blender-web-bridge
 
 **應看到：**「Saved locally / 已在本機儲存設定」。**若沒有：**檢查 `Blender.app` 是否真的在指定位置、輸出位置是否完整、Tunnel ID 是否誤填成 key，以及通道是否停止。若你想改掉既有身份，本版會拒絕該遷移；看[安全說明](SECURITY_RC2.md)。
 
-![舊版設定分頁圖解，實際操作以本文 rc2 欄位為準](images/setup-tab-3.png)
+![歷史版 macOS Blender Web Bridge App 視窗，顯示設定分頁與本機欄位](images/setup-tab-3.png)
+
+*這張歷史版 macOS App 視窗顯示 Blender 位置、Tunnel ID、App 名稱、輸出資料夾及遮罩金鑰欄。它**不是 rc2 截圖**；實際操作請依上表的現行欄位及按鈕名稱。*
 
 ## 步驟 4：首次準備元件
 
@@ -67,7 +65,7 @@ cd blender-web-bridge
 
 **應看到：**元件準備成功，之後才連接。**若沒有：**若提示服務已載入，須自行令服務停止；若雜湊不符，先查原因，**不可略過檢查**。[故障排解](TROUBLESHOOTING_RC2.md) · [第三方元件](THIRD_PARTY.md)。
 
-![舊版操作分頁參考圖；現行準備元件按鈕位於設定頁](images/setup-tab-2.png)
+歷史[圖解設定頁](SETUP_RC2.html)的操作分頁圖片**沒有**現行的 Prepare components 按鈕；請依本 rc2 指南到設定分頁操作。
 
 ## 步驟 5：連接並逐層檢查
 
@@ -86,7 +84,9 @@ cd blender-web-bridge
 
 ![舊版狀態圖解，文字可能與 rc2 不同](images/setup-tab-0.png)
 
-![舊版連接圖解，請以本頁四層解釋為準](images/setup-tab-1.png)
+![歷史版 macOS 連接分頁，顯示連接身份與範圍，並非 rc2 四層狀態](images/setup-tab-1.png)
+
+*這是另一個歷史分頁，展示連接身份與範圍，與上一張狀態分頁不同；它**不是 rc2 截圖**。四層狀態請依上表。*
 
 ## 步驟 6：更新工具並開啟新的 ChatGPT 對話
 
@@ -122,6 +122,6 @@ python3 install.py --rollback
 
 **應看到：**通道停止而 Blender 保持開啟；更新後桌面 App 可開啟；還原後有明確成功結果。**若沒有：**看[故障排解](TROUBLESHOOTING_RC2.md)，不要刪除恢復所需檔案。
 
-![舊版操作分頁圖解；現行 Stop 按鈕位於狀態頁](images/setup-tab-2.png)
+歷史[圖解設定頁](SETUP_RC2.html)使用舊操作分頁，**沒有**現行的 Stop 按鈕；本 rc2 版本請到 **Status / 狀態**操作。
 
 已記錄的測試範圍：Apple 晶片 macOS、Python 3.10 + Tk，**187 項通過、2 項跳過**。Intel Mac、整機重啟、長時間連續運行、真實 VPN 出口 IP 輪換、公證及所有 ChatGPT 方案／地區均**未測**。見[驗證證據](VERIFICATION_EVIDENCE.md)、[驗收範圍](ACCEPTANCE.md)及[完整連結地圖](LINKS.md)。

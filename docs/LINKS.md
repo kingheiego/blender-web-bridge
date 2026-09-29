@@ -9,6 +9,8 @@ Use this map to move between the public guide, evidence, and upstream prerequisi
 | [README](../README.md) | Nine-step bilingual quick start and verified-scope table. / 雙語九步快速開始及實測範圍。 |
 | [Getting started — English](GETTING_STARTED.md) | Full, illustrated walkthrough for a first install. / 英文首次安裝全流程圖解。 |
 | [入門指南 — 繁體中文](GETTING_STARTED.zh-Hant.md) | 同一流程的完整繁體中文圖解。 / Full Traditional Chinese walkthrough. |
+| [FAQ — English](FAQ.md) and [常見問題 — 繁體中文](FAQ.zh-Hant.md) | Plain answers on account eligibility, local execution, risks and limits. / 帳戶資格、本機執行、風險與限制。 |
+| [Connector icon fix / 連接器圖示修復](CONNECTOR_ICON_FIX.md) | Public icon asset and the remaining ChatGPT-side branding step. / 公開圖示檔與尚待完成的 ChatGPT 端品牌設定。 |
 | [Annotated setup page / 圖解設定頁](SETUP_RC2.html) | Historical annotated images; follow current rc2 labels in the getting-started guides. / 舊版圖解；操作以新版指南為準。 |
 | [Install.command](../Install.command) and [installer options](../install.py) | Run installation or inspect `--check` and `--rollback`; these write no services on install. / 安裝及查閱檢查、還原選項。 |
 | [README_RC2](../README_RC2.md) and [繁中 RC2 說明](README_RC2.zh-Hant.md) | Candidate-specific background after the quick start. / 快速開始後查閱候選版細節。 |

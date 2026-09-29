@@ -10,9 +10,7 @@ This guide takes you from a downloaded repo to a real ChatGPT-to-Blender tool re
 
 **You should see:** Blender launches; Python/Tk is available; your custom app and tunnel exist in ChatGPT. **If not:** complete the missing upstream prerequisite first. If the feature is absent from your account or region, stop here rather than trying to fix it by changing your Mac's network. [Troubleshooting](TROUBLESHOOTING_RC2.md).
 
-![Historical setup reference showing where a configured app is headed](images/setup-tab-3.png)
-
-*Historical setup illustration; it does not show how to acquire account eligibility or an rc2 screenshot.*
+There is no screenshot of account eligibility here; check the controls shown in your own ChatGPT account. The [annotated setup page](SETUP_RC2.html) shows the later local-app workflow, using historical UI images.
 
 ## Step 1 — Download and open the repo
 
@@ -27,9 +25,7 @@ Or open the [GitHub repository](https://github.com/kingheiego/blender-web-bridge
 
 This app is **not notarized**. If macOS says `Install.command` is from an **“unidentified developer”**, right-click (or Control-click) that file, choose **Open**, and confirm **Open** for this copy if you trust its source. The same macOS prompt may appear when opening the desktop app; use the same deliberate Open action. Do not turn off macOS security globally.
 
-**You should see:** `Install.command` in the repo root and then a Terminal window when you open it. **If not:** check that the ZIP was extracted and Finder is showing the repo root; see [setup](SETUP_RC2.html). The historical setup picture below is only a reference for the next stage, not an image of the macOS warning.
-
-![Historical setup reference, not the macOS security dialog](images/setup-tab-3.png)
+**You should see:** `Install.command` in the repo root and then a Terminal window when you open it. **If not:** check that the ZIP was extracted and Finder is showing the repo root; see the [annotated setup page](SETUP_RC2.html). There is **no screenshot of the Finder file or macOS warning** in this guide; the next picture shows the desktop app only after installation.
 
 ## Step 2 — Run Install.command
 
@@ -39,7 +35,7 @@ You can run `./Install.command --check` from the repo folder for a **non-writing
 
 **You should see:** an installer result with `ok: true` and the Desktop `.app`. **If not:** read the visible error. If it says Python/Tk is unavailable, install a suitable official macOS Python and retry. If it reports a lock or unfinished rollback, follow [troubleshooting](TROUBLESHOOTING_RC2.md); do not delete transaction files.
 
-![Historical setup reference for the app you open after installation](images/setup-tab-3.png)
+There is no installer-success screenshot here. After installation, the next step shows the desktop app's Setup tab in a **historical UI reference**, not an rc2 capture.
 
 ## Step 3 — Open the desktop app and save Setup
 
@@ -57,7 +53,9 @@ Click **Save setup / 儲存設定** while the tunnel is stopped. Existing Tunnel
 
 **You should see:** **“Saved locally / 已在本機儲存設定.”** **If not:** confirm Blender.app really exists at that path, the output path is absolute, your Tunnel ID is not a key, and the tunnel is stopped. If you are changing an existing identity rather than setting up a fresh install, this release refuses that migration; see [security](SECURITY_RC2.md).
 
-![Historical settings-tab guide image; use the current rc2 field labels above](images/setup-tab-3.png)
+![Historical macOS Blender Web Bridge app window, showing its Setup tab and local fields](images/setup-tab-3.png)
+
+*Historical macOS app window: the Setup tab shows the Blender location, Tunnel ID, app name, output folder and masked key field. This is **not an rc2 capture**; use the current field and button names in the table above.*
 
 ## Step 4 — Prepare components
 
@@ -67,7 +65,7 @@ The app **never stops a running service for you**. Stop the tunnel first and ens
 
 **You should see:** component preparation finish successfully before Connect. **If not:** a service-loaded refusal means you must make the services inactive yourself; a checksum mismatch must be investigated, never bypassed. Use [troubleshooting](TROUBLESHOOTING_RC2.md) and [third-party inventory](THIRD_PARTY.md).
 
-![Historical actions-tab reference; current Prepare components is on Setup](images/setup-tab-2.png)
+The historical [annotated setup page](SETUP_RC2.html) shows an older interface; its Actions-tab picture does **not** show the current Prepare components button. Use the current Setup tab named above.
 
 ## Step 5 — Connect and read all four status layers
 
@@ -86,7 +84,9 @@ For Web acceptance, ask for two real read-only `get_scene_info` results in ChatG
 
 ![Historical status illustration; its wording may differ from rc2](images/setup-tab-0.png)
 
-![Historical connection illustration; use the four rc2 rows above](images/setup-tab-1.png)
+![Historical macOS Connection tab showing connection identity and scope, not the rc2 four-layer status](images/setup-tab-1.png)
+
+*Second historical tab, shown for connection identity and scope. It is a different view from the preceding Status tab and **not an rc2 capture**; use the four rc2 rows above for status.*
 
 ## Step 6 — Refresh tools and start a new ChatGPT conversation
 
@@ -122,6 +122,6 @@ If you installed with custom `--source`, `--data`, or `--desktop` paths, pass th
 
 **You should see:** the tunnel stop while Blender stays open; after update the Desktop app opens; after rollback an explicit successful result. **If not:** use [troubleshooting](TROUBLESHOOTING_RC2.md) and do not delete recovery files.
 
-![Historical action-tab illustration; current Stop is on Status](images/setup-tab-2.png)
+The historical [annotated setup page](SETUP_RC2.html) uses an older Actions tab. It does **not** show the current Stop button; use **Status / 狀態** in this rc2 guide.
 
 The documented test scope is Apple-silicon macOS, Python 3.10 + Tk, **187 passes and 2 skips**. Intel Macs, full reboot, long soak, actual VPN exit-IP rotation, notarization, and every ChatGPT plan/region remain **untested**. Read [verification evidence](VERIFICATION_EVIDENCE.md), [acceptance scope](ACCEPTANCE.md), and the [complete link map](LINKS.md).
