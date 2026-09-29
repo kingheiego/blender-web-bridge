@@ -1,5 +1,7 @@
 # Blender Web Bridge 使用說明
 
+**由這裡開始：**[英文入門指南](GETTING_STARTED.md) · [繁體中文入門指南](GETTING_STARTED.zh-Hant.md) · [所有連結](LINKS.md)。
+
 本版是 **2.0.1-rc2 程式候選版**，不是已完成 Mac 實機驗收的發佈版。
 
 解壓後先看 [首次設定圖解](SETUP_RC2.html)，再雙擊 `Install.command`。需要自行安裝 Blender、
@@ -27,5 +29,5 @@ Python 3.10 或以上及 Tk，建議 3.11 或以上；MCP 另用固定 Python 3.
 三個案例均是歷史案例，不代表 rc2 已在 Mac 或網頁通過。只有一句話案例保存了原始提示詞；
 另兩個詳細案例明確標示原文未保存。見 [案例](EXAMPLES_RC2.md) 及 [驗收清單](ACCEPTANCE.md)。
 
-九個原圖／圖示均已在本樹中，雜湊相符並獲准公開發佈；`tools/complete_source.py` 僅作還原輔助。
+九個原圖／圖示均已在本樹中，雜湊相符並獲准公開發佈；`tools/build_public.py` 仍會檢查圖片審批。
 詳見根目錄 `README_RC2.md` 及 `release-assets.json`。不保證所有 VPN 出口、Mac、帳戶均支援。

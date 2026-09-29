@@ -12,7 +12,7 @@
 | `rollback_incomplete` | Keep all `.bwb-*` directories and the journal. Use the reviewed explicit rollback while stopped; do not start the candidate. / 保留交易紀錄及所有備份，明確還原，勿啟動候選版。 |
 | Existing profile differs / 舊 profile 不同 | Fail-closed. Codex must compare ID, key binding, executable, health address and JSON log format without regenerating identity. / 拒絕自動遷移，人工比對，不重建身份。 |
 | Symlink refused / 符號連結遭拒 | Use a genuine directory, not a symlink alias. Strict ancestor checks also reject macOS `/tmp` or `/var` aliases. / 使用真實路徑；本版嚴格拒絕上層 symlink，包括系統別名。 |
-| Missing guide pictures / 圖片缺失 | The code-review delivery has not retrieved original media. Restore pinned assets locally and perform human review before public packaging. / 補回原檔並人工審核後才可公開打包。 |
+| Missing guide pictures / 圖片缺失 | Current source includes the approved images. If your download lacks them, obtain a complete repo/ZIP and check the relative paths in the [getting-started guide](GETTING_STARTED.md); do not assume a missing image proves an app failure. / 目前原始碼已包含獲批准圖片；若下載副本欠缺，重新取得完整 repo／ZIP，並核對[入門指南](GETTING_STARTED.zh-Hant.md)內的相對路徑。 |
 
 Export status uses an allowlist and omits account names, Tunnel IDs, scenes, PIDs,
 raw logs and paths. Never publish your state folder or a raw diagnostic log.

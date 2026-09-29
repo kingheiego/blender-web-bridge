@@ -1,5 +1,7 @@
 # Blender Web Bridge · 2.0.1-rc2
 
+**Start here / 由這裡開始：** [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [All links / 所有連結](docs/LINKS.md).
+
 **Review candidate, not a hardware-accepted release. / 審核候選版，尚未完成實機驗收。**
 
 A per-user macOS desktop controller for your existing private Blender tunnel.
@@ -63,10 +65,9 @@ are changed. No model-changing operation is replayed by this controller.
 **Verification evidence / 驗證證據：**[bilingual notes / 雙語說明](docs/VERIFICATION_EVIDENCE.md) · [five original screenshots / 五張原始截圖](docs/images/evidence/)
 
 **Media completeness:** all nine original images/icon are present in this tree,
-hash-matched and approved for public distribution. `tools/complete_source.py`
-remains a restore aid only; `tools/build_public.py` enforces the media review gate.
-**圖片完整性：**九個原圖／圖示均已在本樹中，雜湊相符並獲准公開發佈。
-`tools/complete_source.py` 僅保留作還原輔助；`tools/build_public.py` 仍會檢查圖片審批。
+hash-matched and approved for public distribution. `tools/build_public.py` enforces
+the media review gate. **圖片完整性：**九個原圖／圖示均已在本樹中，
+雜湊相符並獲准公開發佈；`tools/build_public.py` 仍會檢查圖片審批。
 
 Controller license: MIT. Pinned dependencies retain their upstream licenses.
 No runtime binary or credentials are distributed. / 控制程式為 MIT；不附 runtime 或憑證。

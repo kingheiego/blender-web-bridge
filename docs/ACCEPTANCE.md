@@ -1,7 +1,6 @@
 # Candidate acceptance / 候選版驗收
 
-**Status: NOT hardware-accepted; public release blocked pending original media review.**
-**狀態：未完成實機驗收；原圖取回及人工覆核前阻擋公開發佈。**
+**Historical candidate checklist:** this section records the earlier delivery, not the later 2026-09-29 web check. The original images are now present and approved for public distribution; see [verification evidence](VERIFICATION_EVIDENCE.md) for the later, narrower web observations. Full-machine acceptance remains incomplete. / **歷史候選版清單：**下文記錄較早的交付階段，並非 2026-09-29 後續網頁測試。原圖現已齊備並獲准公開發佈；較新的有限網頁實測見[驗證證據](VERIFICATION_EVIDENCE.md)。整機完整驗收仍未完成。
 
 Automated tests in this delivery exercise real Python filesystem operations and
 synthetic service/metrics responses in a Linux sandbox. They are not a test of
@@ -13,7 +12,7 @@ The new test_rc2 suite is not a claim that full-repository discovery passes; Cod
 must reconcile legacy API/expectation changes and run the whole intended suite
 before deployment. 原有三份測試只讀過，未在 rc2 執行；不可把新測試結果當成全 repository 測試通過。
 
-| Gate / 驗收項目 | Required evidence / 所需證據 | This delivery / 本次 |
+| Gate / 驗收項目 | Required evidence / 所需證據 | Earlier delivery / 較早階段 |
 |---|---|---|
 | Candidate tests / 候選測試 | Run `python3 -m unittest discover -s tests -p 'test_rc2_*.py' -v` | Executed in Linux; see report / Linux 已執行 |
 | Real install/update/rollback / 實機安裝更新還原 | Correct configured labels, receipt/bundle version/hash; preserve settings and live Blender | Not executed / 未執行 |
@@ -32,8 +31,6 @@ Blender or overwrite an open project. For a model-changing request whose respons
 was lost, inspect the result before a separately approved retry. A simulated test
 must stay labeled simulated, even when its assertions pass.
 
-To finish media assembly from an already available pinned local checkout:
-`python3 tools/complete_source.py --baseline-repo <local-checkout>`.
-This does not fetch, push, deploy, run Blender or touch account settings.
-Then inspect every asset and update `release-assets.json` truthfully before using
-`tools/build_public.py`. Do not mark a review as complete merely because hashes match.
+For the present source tree, inspect the existing assets and the approval record
+before using `tools/build_public.py`. A hash match alone is not a human review.
+現有原始碼已包含圖檔；公開打包前仍應核對圖片與批准紀錄，雜湊相符本身不等於人工覆核。

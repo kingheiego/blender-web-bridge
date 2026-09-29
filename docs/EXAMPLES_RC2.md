@@ -54,10 +54,11 @@ Approval details are unavailable. / 來源記錄 319 物件、100 行人、8 車
 
 ## Image provenance and review / 圖片來源及覆核
 
-Every path and full SHA-256 is in `../release-assets.json`. The prior source claims
-the request screenshot was cropped to exclude account chrome and personal paths.
-**This delivery did not retrieve or visually inspect those bytes**, so this prior
-claim is not a new privacy approval. Rendering provenance also does not by itself
-prove there are no private labels in an image. Public packaging remains blocked.
-各原圖完整 hash 均列於資產表。來源曾稱截圖不含帳戶介面及私人路徑，但本次沒有取得及查看
-原檔，因此不能沿用作本次私隱批准。必須補回原圖、逐張查看後才可公開打包。
+The images linked above are present in this repo. Their paths and SHA-256 values
+are recorded in [`release-assets.json`](../release-assets.json), and the
+[public approval record](../RELEASE_IMAGE_REVIEW.json) records review of the
+included hashes. This updates the earlier missing-image note; it does **not**
+turn historical cases into new rc2 runs. / 上述圖片已在 repo 內，路徑及
+SHA-256 記於 [`release-assets.json`](../release-assets.json)，
+[公開批准紀錄](../RELEASE_IMAGE_REVIEW.json)記錄了現有雜湊的覆核。
+較早的圖片缺失說明已不適用，但歷史案例**沒有**因此變成 rc2 新測試。

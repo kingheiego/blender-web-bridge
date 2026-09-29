@@ -17,9 +17,11 @@ heuristics, not a guarantee that arbitrary text contains no secret.
 The media gate requires a real person to inspect all visible pixels, metadata,
 account chrome, personal paths, faces, tokens and source rights, then explicitly
 record an approval of the exact hash. No code can prove that a checkbox corresponds
-to an honest human review. The included manifest starts unapproved.
-圖片覆核須真正查看像素及 metadata、帳戶介面、私人路徑、人像、token 與來源權利，再批准
-該 hash。程式不能證明人是否誠實完成查看；初始表全部未批准。
+to an honest human review. The current [approval record](../RELEASE_IMAGE_REVIEW.json)
+marks the included images/icon approved; any changed bytes need their own review.
+圖片覆核須真正查看像素及 metadata、帳戶介面、私人路徑、人像、token 與來源權利，
+再批准該 hash。程式不能證明人是否誠實完成查看；現有[批准紀錄](../RELEASE_IMAGE_REVIEW.json)
+標記了本次圖片／圖示，若位元內容改變須重新覆核。
 
 The new controller's export includes classification values only. It does not
 export raw log messages. Existing local tunnel logs can contain request identifiers,

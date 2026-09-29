@@ -1,0 +1,5 @@
+# Packaging notes / 封裝說明
+
+This repository is a **source package** with `Install.command` and `install.py`. Installation writes local files and a Desktop `.app` but does **not** start services or download runtime components. The app's first-time **Prepare components** action downloads pinned, SHA-256-verified components listed in [`dependencies.lock.json`](dependencies.lock.json). Python 3.10+ with Tk is a separate prerequisite; Python is **not bundled**. The app is **not notarized**. / 此 repo 是含 `Install.command` 及 `install.py` 的**原始碼包**。安裝只寫入本機檔案及桌面 `.app`，**不**啟動服務或下載執行元件。首次由 App 的**準備元件**下載並核對 [`dependencies.lock.json`](dependencies.lock.json) 所列固定版本與 SHA-256。Python 3.10 或以上及 Tk 須另外安裝；**不附 Python**。App **未經 Apple 公證**。
+
+The installer copies a fixed set of app files and selected guide assets into the installed support folder; the complete, current guides and link map live in this GitHub repository. For the supported first-run path, begin at [README](README.md) or [Getting started / 入門指南](docs/GETTING_STARTED.md). / 安裝器只複製固定清單的程式與部分指南素材到本機支援資料夾；完整的最新指南和連結地圖以本 GitHub repo 為準。首次使用請由 [README](README.md) 或[入門指南](docs/GETTING_STARTED.zh-Hant.md)開始。
