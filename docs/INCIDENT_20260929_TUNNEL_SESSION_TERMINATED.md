@@ -14,11 +14,11 @@ The 2.0.0 service policy used `KeepAlive=true`. The 2.0.1-rc2 candidate wrote `K
 
 At **22:00:40–22:00:41**, the supported `disconnect` path stopped only the tunnel. At **22:00:55–22:00:56**, the supported `connect` path requested one start. At **22:01:11**, `launchctl list` showed the tunnel running with new PID **14543**, while the Blender service remained running. A local read-only scene check returned `Yellow_Train_Platform` with **4,340 objects**, and `/readyz` returned HTTP 200. The `commands_poll_last_successful_timestamp_seconds` metric corresponded to **22:01:28 HKT**, observed at **22:01:31 HKT**. A separate read-only connector call confirmed **47 materials**. The owner reported no lost work; the contents of unsaved work were not independently audited. No modeling or save command was run.
 
-The controller's cloud layer still showed `unknown` because a required error-counter metric was absent or ambiguous. The read-only connector call succeeded, but a new **ChatGPT web conversation's** tool reply was **not independently verified** in this follow-up. A ready local process and fresh poll do not by themselves prove web acceptance.
+The controller's cloud layer still showed `unknown` because a required error-counter metric was absent or ambiguous. Later that evening, a **new ChatGPT web conversation** selected the existing Blender connector and received a real read-only `get_scene_info` reply: `Yellow_Train_Platform`, **4,340 objects**, **47 materials**, and no “Session terminated” error. No modeling or save action was requested. This confirms the web path for that request; it does not make the missing metric valid or guarantee future availability. No private conversation URL is included in this public record.
 
 於 **22:00:40–22:00:41**，產品的 `disconnect` 路徑只停止通道；**22:00:55–22:00:56**，`connect` 要求啟動一次。**22:01:11**，`launchctl list` 顯示新 PID **14543**，Blender 服務仍在運行。唯讀場景檢查回報 `Yellow_Train_Platform`、**4,340 個物件**；`/readyz` 回 HTTP 200。`commands_poll_last_successful_timestamp_seconds` 對應 **22:01:28（香港時間）**，於 **22:01:31** 觀察到。另一次唯讀連接器呼叫確認 **47 種材質**。擁有人回報沒有工作損失；未儲存工作的內容未經獨立審計，也沒有執行建模或儲存指令。
 
-控制程式的雲端層仍顯示 `unknown`，因必要的錯誤計數 metric 缺席或不明；唯讀連接器呼叫成功，但本次後續檢查**沒有獨立核實**新 **ChatGPT 網頁對話**的實際工具回覆。本機程序就緒和新鮮輪詢本身不等於網頁驗收成功。
+控制程式的雲端層仍顯示 `unknown`，因必要的錯誤計數 metric 缺席或不明。同晚稍後，在**全新 ChatGPT 網頁對話**選取既有 Blender 連接器後，真正的唯讀 `get_scene_info` 回覆 `Yellow_Train_Platform`、**4,340 個物件**、**47 種材質**，沒有再出現「Session terminated」。沒有要求建模或儲存。這證明該次網頁請求成功，但不能令缺席的 metric 變成有效資料，亦不保證之後永不斷線。公開紀錄不包含私人對話網址。
 
 ## Fix and lesson / 修正與教訓
 
