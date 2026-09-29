@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "path": "docs/images/setup-tab-0.png",
+      "sha256": "14effe239e2f1e99b448f99e6588c0025775a2e389e2d80e67793abc687dcd76",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/setup-tab-1.png",
+      "sha256": "90cec8fa3dfc984044d941cd4dcdbc0d005f815fd3d776506aa10c615748de53",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/setup-tab-2.png",
+      "sha256": "684fa8ffd27e5286c6dd82e7b082108c136d0dd28758354f9b993f350b0c7d0c",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/setup-tab-3.png",
+      "sha256": "0d8aad5d491573fd1d869fb8ac6e2f5ad4c79958b5e1e8415e9d149c8979769c",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/cases/case-natural-one-line-request.png",
+      "sha256": "fae17c536b1fb476a90f61d41a00924d02ecf323c9e963554319a76f0e52aada",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/cases/case-natural-one-line.png",
+      "sha256": "09247e5bd6214038b1055d0408600f236f5f3f35fd04c95bebdecd04a14e32e1",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/cases/case-shibuya-crossing-detailed.png",
+      "sha256": "028feb40e09f214e0d43925fdc8c587efb3cd393aed8f01a1840dd10def17ae8",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "docs/images/cases/case-showa-house-detailed.png",
+      "sha256": "837e15d4879eec21dd178415851602c406e0a7b491a735d32342cab6ee40a8b2",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    },
+    {
+      "path": "app/resources/Bridge.icns",
+      "sha256": "847609aa8e62a3e6260a262eab54da3909e27e0d88a732878abc7d68b3061e9c",
+      "human_reviewed": true,
+      "metadata_reviewed": true,
+      "approved_for_public": true,
+      "reviewed_at": "2026-09-29T18:25:00+08:00",
+      "review_reference": "sha256:783f14a46ef448685cf05861990a32b3a6340959fa8b3635338ef153081b741a"
+    }
+  ]
+}
