@@ -160,7 +160,7 @@ def tunnel_status():
         out['detail'] = 'Stopped / 已停止'
         return out
     if not current['pid']:
-        out['detail'] = 'Loaded, no running PID; inspect startup status / 服務已載入但沒有程序'
+        out['detail'] = 'Loaded, no running PID; press Connect to restart / 服務已載入但沒有程序；按「一鍵連接」重新啟動'
         error_path = STATE / 'daemon-error.json'
         try:
             record = json.loads(checked_path(error_path).read_text())

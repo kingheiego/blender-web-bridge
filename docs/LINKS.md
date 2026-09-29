@@ -20,6 +20,8 @@ Use this map to move between the public guide, evidence, and upstream prerequisi
 | Link / 連結 | When to use it / 何時使用 |
 |---|---|
 | [Troubleshooting / 故障排解](TROUBLESHOOTING_RC2.md) | A status layer fails, the installer refuses, or rollback is incomplete. / 狀態異常、安裝被拒或還原未完成。 |
+| [Connection recovery — English](CONNECTION_RECOVERY.md) and [連線恢復 — 繁體中文](CONNECTION_RECOVERY.zh-Hant.md) | Recover a stopped tunnel with Connect and refresh tools in a new ChatGPT conversation. / 按「一鍵連接」恢復通道，並在新對話重新載入工具。 |
+| [2026-09-29 tunnel incident / 通道事故紀錄](INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md) | Read the observed symptom, recovery evidence, fix and limits. / 查看症狀、恢復證據、修正與未驗證事項。 |
 | [Examples / 案例](EXAMPLES_RC2.md) | Read historical natural-language requests; these are not rc2 reruns. / 參考歷史自然語言案例，並非 rc2 重測。 |
 | [Acceptance / 驗收](ACCEPTANCE.md) | See the earlier candidate acceptance checklist and its limits. / 查看較早階段的候選版驗收清單與限制。 |
 | [Verification evidence / 實測證據](VERIFICATION_EVIDENCE.md) | See the 2026-09-29 ChatGPT web observations and screenshots. / 查看當日網頁實測紀錄及截圖。 |
