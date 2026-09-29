@@ -127,4 +127,4 @@ python3 install.py --rollback
 較早的私人來源測試回報 **187 項通過、2 項跳過**；公開 checkout 沒有 `tests/`，本次文件更新沒有重跑。已記錄的 Mac 範圍是 Apple 晶片、Python 3.10 + Tk。Intel Mac、整機重啟、長時間連續運行、真實 VPN 出口 IP 輪換、公證及所有 ChatGPT 方案／地區均**未測**。見[驗證證據](VERIFICATION_EVIDENCE.md)、[驗收範圍](ACCEPTANCE.md)及[完整連結地圖](LINKS.md)。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

@@ -1,4 +1,4 @@
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """macOS Keychain storage through Security.framework; no secret argv or stdout."""
 import ctypes
 from pathlib import Path

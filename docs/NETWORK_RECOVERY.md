@@ -68,4 +68,4 @@ Official region information (checked 2026-09-29):
 https://help.openai.com/en/articles/7947663-chatgpt-supported-countries
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

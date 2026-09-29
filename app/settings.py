@@ -1,4 +1,4 @@
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Per-user configuration. No account identifiers belong in the source tree."""
 import json
 import os

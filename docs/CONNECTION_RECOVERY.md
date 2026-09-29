@@ -35,4 +35,4 @@ An earlier build could leave a tunnel stopped after a clean exit while launchd s
 See the [2026-09-29 incident record](INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md) and [Traditional Chinese guide](CONNECTION_RECOVERY.zh-Hant.md).
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

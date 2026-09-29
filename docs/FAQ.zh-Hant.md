@@ -43,4 +43,4 @@
 Blender socket 只在 loopback 監聽，通道則**向外**連接 OpenAI。這限制網絡暴露，但不能保證本機程序或錯誤工具呼叫沒有風險。**Stop／停止通道**只停止通道，Blender 仍保持開啟；**只關閉桌面面板不會斷線**。不需要 ChatGPT 存取時請停止通道，並照常儲存 Blender 作品。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

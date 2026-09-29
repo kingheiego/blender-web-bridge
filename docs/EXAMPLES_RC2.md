@@ -64,4 +64,4 @@ SHA-256 記於 [`release-assets.json`](../release-assets.json)，
 較早的圖片缺失說明已不適用，但歷史案例**沒有**因此變成 rc2 新測試。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

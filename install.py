@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Transactional per-user installer. No service stop, networking or Blender calls.
 
 Each target has its own staging/backup directory on the target filesystem.

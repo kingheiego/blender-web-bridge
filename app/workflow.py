@@ -1,4 +1,4 @@
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Expose user-selected defaults as runtime data, not only optional server guidance."""
 import json
 import re

@@ -42,4 +42,4 @@ English: “Please do the simplest test: make a simple cat from a cube, then sav
 Good means you see a real connector tool call, a small cat model appears in Blender, and a file is saved in your configured output folder. If ChatGPT makes no tool call, check the desktop app's **Status / 狀態** layers, open your app's connector settings and click **Refresh tools once**, then open a **NEW conversation** and select the app again. A conversation created while the tunnel was down may keep reporting no tools. See [Connection recovery](CONNECTION_RECOVERY.md), [連線恢復](CONNECTION_RECOVERY.zh-Hant.md), and [RC2 troubleshooting](TROUBLESHOOTING_RC2.md).
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

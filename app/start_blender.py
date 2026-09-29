@@ -1,4 +1,4 @@
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Run inside an isolated Blender instance, retaining its normal UI event loop."""
 import json
 import os

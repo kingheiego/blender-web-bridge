@@ -1,4 +1,4 @@
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Pinned upstream Blender MCP plus transparent, owner-configured workflow defaults."""
 import json
 import os

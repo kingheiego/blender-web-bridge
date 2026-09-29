@@ -5,4 +5,4 @@ Blender Web Bridge's controller source is under [MIT](../LICENSE). Blender, Pyth
 Use the [link map](LINKS.md) for checked official Blender, Python and OpenAI pages. Component preparation verifies downloaded files against the lockfile; a checksum mismatch is a failure, not a prompt to skip verification. / 已核對的 Blender、Python、OpenAI 官方頁面見[連結地圖](LINKS.md)。準備元件時會依固定清單核對下載檔；雜湊不符代表失敗，不可略過驗證。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

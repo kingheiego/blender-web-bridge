@@ -35,4 +35,4 @@ launchctl kickstart -k "gui/$(id -u)/YOUR_TUNNEL_LABEL"
 另見 [2026-09-29 事故紀錄](INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md)及[英文指南](CONNECTION_RECOVERY.md)。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

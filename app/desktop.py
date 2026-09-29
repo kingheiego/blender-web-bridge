@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Four-layer macOS controller. Tk widgets are touched only on the UI thread."""
 from __future__ import annotations
 
@@ -97,7 +97,7 @@ class App:
         ttk.Label(self.status_page, text='Stop persists across login. Blender and unsaved models stay open.\n停止設定會保留至下次登入；Blender 及未存檔模型保持開啟。', wraplength=920).pack(anchor='w')
         self.setup()
         self.acceptance()
-        self.message = tk.StringVar(value='Candidate build: macOS hardware acceptance pending / 候選版：macOS 實機驗收未完成 · @kinghei.ego/@ai.alter')
+        self.message = tk.StringVar(value='Candidate build: macOS hardware acceptance pending / 候選版：macOS 實機驗收未完成 · @kinghei.ego/@ai.alter (GitHub: kingheiego)')
         ttk.Label(root, textvariable=self.message, wraplength=1020, padding=18).pack(fill='x')
         root.after(50, self.poll)
         root.after(100, self.drain)

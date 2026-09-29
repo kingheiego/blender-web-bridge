@@ -27,4 +27,4 @@ The controller now says **“Loaded, no running PID; press Connect to restart.�
 控制程式現時會顯示**「服務已載入但沒有程序；按『一鍵連接』重新啟動」**，既有 Connect 路徑會要求該服務啟動一次。LaunchAgent 規則和 60 秒節流不變，保留前置條件失敗時正常退出、不循環重啟的特性。正常退出後仍**需要使用者按一次**；本次不聲稱已實現自動恢復。詳見[英文](CONNECTION_RECOVERY.md)及[繁體中文](CONNECTION_RECOVERY.zh-Hant.md)恢復指南。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

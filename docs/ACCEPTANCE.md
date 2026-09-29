@@ -36,4 +36,4 @@ before using `tools/build_public.py`. A hash match alone is not a human review.
 現有原始碼已包含圖檔；公開打包前仍應核對圖片與批准紀錄，雜湊相符本身不等於人工覆核。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

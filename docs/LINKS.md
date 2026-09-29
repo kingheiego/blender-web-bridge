@@ -64,4 +64,4 @@ This is agent-assisted local setup, **not one-click or fully hands-off**. HUMAN 
 | [This GitHub repository](https://github.com/kingheiego/blender-web-bridge) | Choose **Code → Download ZIP** or copy the clone URL. / 下載 ZIP 或複製 clone 網址。 |
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

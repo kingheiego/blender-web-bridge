@@ -127,4 +127,4 @@ The historical [annotated setup page](SETUP_RC2.html) uses an older Actions tab.
 An earlier private-source run reported **187 passes and 2 skips**; this public checkout has no `tests/`, and the suite was not rerun for this documentation update. Recorded Mac scope is Apple-silicon macOS, Python 3.10 + Tk. Intel Macs, full reboot, long soak, actual VPN exit-IP rotation, notarization, and every ChatGPT plan/region remain **untested**. Read [verification evidence](VERIFICATION_EVIDENCE.md), [acceptance scope](ACCEPTANCE.md), and the [complete link map](LINKS.md).
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

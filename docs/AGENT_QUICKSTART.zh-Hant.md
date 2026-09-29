@@ -29,4 +29,4 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 較長提示詞見[交給 AI 協助安裝](INSTALL_WITH_AI.md)。本工具與 OpenAI 無關，也未經 Apple 公證。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

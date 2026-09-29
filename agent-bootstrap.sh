@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 # Safe bootstrap: only clone to a new directory, run Install.command --check,
 # and print the exact agent handoff line from docs/AGENT_QUICKSTART.md.
 # No install, service/Blender access, VPN/network changes, keys, deletion,

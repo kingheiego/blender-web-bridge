@@ -49,4 +49,4 @@ The repository commit only corrects this document. The ChatGPT icon is **not fix
 本次 commit 只修正文件；ChatGPT 圖示**尚未修好，亦沒有重新做畫面驗證**。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

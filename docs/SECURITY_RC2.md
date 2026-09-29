@@ -48,4 +48,4 @@ are pinned, but this work does not add a complete per-wheel hash lock; runtime
 supply-chain verification beyond existing primary artifact hashes remains a gap.
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

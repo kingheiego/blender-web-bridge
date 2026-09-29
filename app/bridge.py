@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """One launchd supervisor; observational health; never replay model operations."""
 from __future__ import annotations
 

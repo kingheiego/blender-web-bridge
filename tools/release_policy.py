@@ -1,4 +1,4 @@
-# Author / 作者水印: @kinghei.ego/@ai.alter
+# Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 """Explicit source/media policy. No runtime secrets or recursively copied data."""
 from pathlib import Path
 import hashlib

@@ -1,6 +1,6 @@
 # Blender Web Bridge · 2.0.1-rc2
 
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
 The current GitHub entry point is [README.md](README.md). This file remains a
 standalone overview because the public source ZIP uses it as its README and the
@@ -90,4 +90,4 @@ the media review gate. **圖片完整性：**九個原圖／圖示均已在本�
 Controller license: MIT. Pinned dependencies retain their upstream licenses.
 No runtime binary or credentials are distributed. / 控制程式為 MIT；不附 runtime 或憑證。
 
-Author / 作者: @kinghei.ego/@ai.alter
+Author / 作者: @kinghei.ego/@ai.alter (GitHub: kingheiego)

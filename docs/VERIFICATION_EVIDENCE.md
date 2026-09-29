@@ -88,4 +88,4 @@ exit is not guaranteed.
 IP，但不保證任何指定 VPN 出口均可用。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

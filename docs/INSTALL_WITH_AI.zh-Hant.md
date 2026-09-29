@@ -42,4 +42,4 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 真正通過的樣子是：ChatGPT 有實際呼叫連接器工具、Blender 出現一隻簡單的貓、檔案存入已設定的輸出資料夾。若沒有呼叫工具，先看桌面程式 **Status / 狀態** 各層，在 ChatGPT 的 App connector settings 按**一次 Refresh tools**，然後開**全新對話**重新選 App。通道停止時建立的舊對話可能一直顯示沒有工具。詳見[繁體中文連線恢復](CONNECTION_RECOVERY.zh-Hant.md)、[English recovery](CONNECTION_RECOVERY.md)及[ RC2 故障排解](TROUBLESHOOTING_RC2.md)。
 
 ---
-Watermark / 作者水印: @kinghei.ego/@ai.alter
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
