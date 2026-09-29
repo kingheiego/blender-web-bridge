@@ -7,6 +7,8 @@ Use this map to move between the public guide, evidence, and upstream prerequisi
 | Link / 連結 | When to use it / 何時使用 |
 |---|---|
 | [README](../README.md) | Nine-step bilingual quick start and verified-scope table. / 雙語九步快速開始及實測範圍。 |
+| [Agent quickstart — English](AGENT_QUICKSTART.md) and [AI 代理快速安裝 — 繁體中文](AGENT_QUICKSTART.zh-Hant.md) | One-line handoff and human-only steps. / 一句交接與必須親自完成的步驟。 |
+| [AGENTS.md](../AGENTS.md), [CLAUDE.md](../CLAUDE.md), and [safe bootstrap](../agent-bootstrap.sh) | Agent rules, Claude Code pointer, and clone-plus-prerequisite check. / 代理規則、Claude Code 入口與安全檢查腳本。 |
 | [Install with an AI — English](INSTALL_WITH_AI.md) and [交給 AI 協助安裝 — 繁體中文](INSTALL_WITH_AI.zh-Hant.md) | Copy one prompt to an AI agent for local setup, then perform the account-side steps and a simple cat test. / 複製提示詞讓 AI 協助本機安裝，再完成帳戶設定和簡單的貓模型測試。 |
 | [Getting started — English](GETTING_STARTED.md) | Full, illustrated walkthrough for a first install. / 英文首次安裝全流程圖解。 |
 | [入門指南 — 繁體中文](GETTING_STARTED.zh-Hant.md) | 同一流程的完整繁體中文圖解。 / Full Traditional Chinese walkthrough. |
