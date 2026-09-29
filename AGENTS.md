@@ -2,12 +2,13 @@
 
 ## Goal
 Install the local controller and verify each connection layer without disturbing existing Blender work.
+The public one-line handoff is: “On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.” Local installation can be agent-assisted; complete setup is not one-click or fully hands-off.
 
 ## Prerequisites to CHECK
-- `uname -s` must return `Darwin`; check `/Applications/Blender.app/Contents/MacOS/Blender` exists.
+- `uname -s` must return `Darwin`; locate an installed `Blender.app` (check `/Applications/Blender.app` first, then ask the user for a custom location).
 - Require Python 3.10+ with a real `import tkinter`; run `./Install.command --check`.
 - Check that the configured loopback port is free (`lsof -nP -iTCP:9876 -sTCP:LISTEN` for the default); never displace a listener.
-- Confirm the user has an eligible ChatGPT plan/workspace/region for Secure MCP Tunnel and custom connectors.
+- Confirm the user has an eligible ChatGPT plan/workspace/region, ChatGPT developer-mode access, and the needed Platform tunnel permissions/workspace association for Secure MCP Tunnel and custom connectors; use the [official tunnel guide](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels). The user or their workspace/Platform admin handles access changes.
 
 ## Steps
 1. Clone `https://github.com/kingheiego/blender-web-bridge.git` into a new directory, or use this checkout; never overwrite another checkout.
@@ -24,17 +25,17 @@ Install the local controller and verify each connection layer without disturbing
 - Do not push to the user's Git remotes.
 
 ## HUMAN ONLY
-- Confirm an eligible ChatGPT plan/workspace/region with Secure MCP Tunnel and custom connectors.
+- Confirm an eligible ChatGPT plan/workspace/region, developer-mode access, Platform tunnel permissions, and workspace association using the [official tunnel guide](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels); the relevant admin handles access grants.
 - Create your own connector app, Tunnel, and runtime key in the OpenAI/ChatGPT UI.
 - Enter the runtime key yourself into the app's masked Keychain field.
 - If Blender is not responsive, decide whether to press `Connect / 一鍵連接` yourself; it may start managed Blender.
-- Click `Refresh tools` and use a NEW conversation; approve ChatGPT consent prompts.
+- Click `Refresh tools` in the connector settings, select the connector in a NEW conversation, and approve ChatGPT consent prompts.
 - Approve macOS prompts, including unidentified developer/right-click Open and Keychain access.
 
 ## Recovery
-1. In `Status / 狀態`, press `Connect / 一鍵連接` (only with the Blender guard above).
-2. In your connector settings, press `Refresh tools`.
-3. Start a NEW conversation; see [connection recovery](docs/CONNECTION_RECOVERY.md).
+1. Check Blender. Press `Connect / 一鍵連接` only when a read-only Blender response is already available; otherwise leave the decision to the user because it may start managed Blender.
+2. In the connector settings, have the user press `Refresh tools`.
+3. Have the user select the connector in a NEW conversation and confirm a real read-only tool reply; see [connection recovery](docs/CONNECTION_RECOVERY.md).
 
 ## Honest limits
 Tested on Apple-silicon macOS with Python 3.10/Tk. Intel, full reboot, long soak, real VPN exit-IP rotation, and all ChatGPT plans/regions are untested. Not notarized. Not affiliated with OpenAI.

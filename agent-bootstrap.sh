@@ -32,5 +32,5 @@ printf 'Prerequisite check in %s:\n' "$target_dir"
 check_status=0
 (cd "$target_dir" && ./Install.command --check </dev/null) || check_status=$?
 printf 'Agent handoff line (paste into an AI coding agent on this Mac):\n'
-printf '%s\n' "Read AGENTS.md in this blender-web-bridge repo and follow it to install and verify Blender Web Bridge on this Mac. Stop and ask me only for the items under 'HUMAN ONLY'."
+printf '%s\n' "On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps."
 exit "$check_status"

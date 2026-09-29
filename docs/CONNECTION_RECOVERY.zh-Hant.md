@@ -5,7 +5,7 @@
 ## 一鍵恢復
 
 1. 在 Mac 開啟 **Blender Web Bridge**；若已開啟，進入 **Status / 狀態**。
-2. 按 **Connect / 一鍵連接**。若仍未恢復，按 **Stop / 停止通道**，再按一次 **Connect**。Stop 只處理通道，不會關閉 Blender。
+2. 先檢查 Blender；若唯讀查詢有回應，再按 **Connect / 一鍵連接**。若 Blender 無回應，由你親自決定是否按 Connect：端口不可用時，它可能啟動受管理的 Blender。若通道仍未恢復，按 **Stop / 停止通道**，再次檢查後才按 **Connect**。Stop 只處理通道，不會關閉 Blender。
 3. 按 **Check / 檢查**。確認 Blender 有回應、通道有正在運行的 PID（可在 `bridge.py status` 查看），並在必要 metrics 齊全時確認雲端層有新鮮的成功輪詢。單靠本機 `/readyz` 正常，不能證明 ChatGPT 已能使用工具。
 4. 到 ChatGPT 中既有連接器的設定按 **Refresh tools**，開一個**新對話**，選擇該連接器，先問唯讀問題，例如「目前 Blender 場景叫甚麼名字？」。收到真正的工具回覆後，才繼續編輯。
 

@@ -69,7 +69,7 @@ cd blender-web-bridge
 
 ## 步驟 5：連接並逐層檢查
 
-在 **Status / 狀態**按一次 **Connect / 一鍵連接**，再按 **Check / 檢查**。四層須分開理解：
+先在 **Status / 狀態**檢查 Blender。若端口不可用，**Connect / 一鍵連接**可能啟動受管理的 Blender；若 Blender 無回應，由你親自決定是否容許這樣做。按一次 Connect，再按 **Check / 檢查**。四層須分開理解：
 
 | 層級 | 甚麼才算正常 | 如果未正常 |
 |---|---|---|
@@ -124,4 +124,4 @@ python3 install.py --rollback
 
 歷史[圖解設定頁](SETUP_RC2.html)使用舊操作分頁，**沒有**現行的 Stop 按鈕；本 rc2 版本請到 **Status / 狀態**操作。
 
-已記錄的測試範圍：Apple 晶片 macOS、Python 3.10 + Tk，**187 項通過、2 項跳過**。Intel Mac、整機重啟、長時間連續運行、真實 VPN 出口 IP 輪換、公證及所有 ChatGPT 方案／地區均**未測**。見[驗證證據](VERIFICATION_EVIDENCE.md)、[驗收範圍](ACCEPTANCE.md)及[完整連結地圖](LINKS.md)。
+較早的私人來源測試回報 **187 項通過、2 項跳過**；公開 checkout 沒有 `tests/`，本次文件更新沒有重跑。已記錄的 Mac 範圍是 Apple 晶片、Python 3.10 + Tk。Intel Mac、整機重啟、長時間連續運行、真實 VPN 出口 IP 輪換、公證及所有 ChatGPT 方案／地區均**未測**。見[驗證證據](VERIFICATION_EVIDENCE.md)、[驗收範圍](ACCEPTANCE.md)及[完整連結地圖](LINKS.md)。

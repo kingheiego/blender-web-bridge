@@ -1,5 +1,15 @@
 # Blender Web Bridge · 2.0.1-rc2
 
+The current GitHub entry point is [README.md](README.md). This file remains a
+standalone overview because the public source ZIP uses it as its README and the
+local installer copies it into the support folder.
+
+**One-line agent handoff / 一句交畀 AI：**
+
+```text
+On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.
+```
+
 **Start here / 由這裡開始：** [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [All links / 所有連結](docs/LINKS.md).
 
 **Review candidate, not a hardware-accepted release. / 審核候選版，尚未完成實機驗收。**
@@ -7,6 +17,7 @@
 A per-user macOS desktop controller for your existing private Blender tunnel.
 One-click Connect and Stop, conservative four-layer status, and transactional updates.
 用一個 macOS 視窗管理自己的 Blender 私人通道：一鍵連接／停止、四層狀態，以及可還原更新。
+The full setup is not one-click or fully hands-off. HUMAN ONLY: confirm ChatGPT eligibility, developer mode, Platform tunnel permission and workspace association; create your connector app, Tunnel and key; enter the key in the masked app field; approve ChatGPT/macOS prompts; refresh tools and select the connector in a new conversation. If Blender is unresponsive, you decide whether to press Connect: it may start managed Blender. / 完整設定並非一鍵全自動；帳戶資格、通道權限、App、金鑰輸入、批准、刷新工具及必要時啟動 Blender 的決定由本人處理。
 
 ## Start / 開始
 
@@ -29,9 +40,14 @@ it never stops either service. Do not use it to update a running Blender.
 打開桌面 App 並完成設定；既有身份不變。首次「準備元件」要求兩個專用服務未運行，
 不會代你停止服務，亦不能用來更新使用中的 Blender。
 
-Press Connect, inspect all four layers, then use your selected app in ChatGPT for
+Check Blender first. Press Connect only if it responds to a read-only query;
+otherwise the owner decides whether to press it. Inspect all four layers, then use your selected app in ChatGPT for
 two read-only scene queries. Record the actual result in the Web acceptance tab.
 按連接後檢查四層狀態，再於 ChatGPT 選擇自己的 App，執行兩次唯讀場景查詢並記錄結果。
+
+If the tunnel stops or an old conversation has no tools, check Blender, use
+Connect under the same guard, refresh tools in the connector settings, and select
+the connector in a new conversation. Confirm a real read-only tool reply.
 
 ## Four independent facts / 四層各自獨立
 
@@ -62,7 +78,7 @@ are changed. No model-changing operation is replayed by this controller.
 [Troubleshooting / 排錯](docs/TROUBLESHOOTING_RC2.md) · [Acceptance / 驗收](docs/ACCEPTANCE.md) ·
 [Security / 私隱](docs/SECURITY_RC2.md) · [Recovery design / 恢復設計](docs/NETWORK_RECOVERY.md)
 
-**Verification evidence / 驗證證據：**[bilingual notes / 雙語說明](docs/VERIFICATION_EVIDENCE.md) · [five original screenshots / 五張原始截圖](docs/images/evidence/)
+**Verification evidence / 驗證證據：**[bilingual notes / 雙語說明](docs/VERIFICATION_EVIDENCE.md) · [five screenshots, with the owner's username masked in two / 五張截圖，其中兩張已遮蓋使用者名稱](docs/images/evidence/)
 
 **Media completeness:** all nine original images/icon are present in this tree,
 hash-matched and approved for public distribution. `tools/build_public.py` enforces

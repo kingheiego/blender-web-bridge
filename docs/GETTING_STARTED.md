@@ -69,7 +69,7 @@ The historical [annotated setup page](SETUP_RC2.html) shows an older interface; 
 
 ## Step 5 — Connect and read all four status layers
 
-Open **Status / 狀態**, click **Connect / 一鍵連接** once, then **Check / 檢查**. Read every row independently:
+Open **Status / 狀態** and check Blender first. **Connect / 一鍵連接** may start a managed Blender if its port is unavailable; if Blender is unresponsive, decide yourself whether to allow that. Click Connect once, then **Check / 檢查**. Read every row independently:
 
 | Layer | What “good” means | If it is not there |
 |---|---|---|
@@ -124,4 +124,4 @@ If you installed with custom `--source`, `--data`, or `--desktop` paths, pass th
 
 The historical [annotated setup page](SETUP_RC2.html) uses an older Actions tab. It does **not** show the current Stop button; use **Status / 狀態** in this rc2 guide.
 
-The documented test scope is Apple-silicon macOS, Python 3.10 + Tk, **187 passes and 2 skips**. Intel Macs, full reboot, long soak, actual VPN exit-IP rotation, notarization, and every ChatGPT plan/region remain **untested**. Read [verification evidence](VERIFICATION_EVIDENCE.md), [acceptance scope](ACCEPTANCE.md), and the [complete link map](LINKS.md).
+An earlier private-source run reported **187 passes and 2 skips**; this public checkout has no `tests/`, and the suite was not rerun for this documentation update. Recorded Mac scope is Apple-silicon macOS, Python 3.10 + Tk. Intel Macs, full reboot, long soak, actual VPN exit-IP rotation, notarization, and every ChatGPT plan/region remain **untested**. Read [verification evidence](VERIFICATION_EVIDENCE.md), [acceptance scope](ACCEPTANCE.md), and the [complete link map](LINKS.md).

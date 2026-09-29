@@ -2,13 +2,14 @@
 
 Blender Web Bridge **2.0.1-rc2**, build **20102** · **2026-09-29**
 
-These five original screenshots record the owner's ChatGPT web interaction with the
-Blender connector. They may show the owner's local macOS path. The Blender project
-paths shown are the owner's own and are published by the owner's choice. Image
-checksums are recorded in [`EVIDENCE_SHA256.txt`](../EVIDENCE_SHA256.txt).
+These five screenshots record the owner's ChatGPT web interaction with the
+Blender connector. In screenshots 02 and 03, only the owner's username in the
+local macOS path has been masked; all other pixels are unaltered. The remaining
+visible Blender project path is published by the owner's choice. Image checksums
+are recorded in [`EVIDENCE_SHA256.txt`](../EVIDENCE_SHA256.txt).
 
-以下五張原始截圖記錄擁有人在 ChatGPT 網頁版使用 Blender 連接器的情況。截圖可能
-顯示擁有人的 macOS 本機路徑；畫面中的 Blender 專案路徑屬擁有人所有，並由擁有人
+以下五張截圖記錄擁有人在 ChatGPT 網頁版使用 Blender 連接器的情況。第 02、03 張
+僅遮蓋本機路徑中的使用者名稱，其他像素未改動；仍可見的 Blender 專案路徑由擁有人
 自行選擇公開。圖片雜湊記錄於 [`EVIDENCE_SHA256.txt`](../EVIDENCE_SHA256.txt)。
 
 ## What happened / 實際經過
@@ -44,6 +45,7 @@ time. This is not evidence that the earlier model was backed up.
 
 2. **Configured save path / 已設定的儲存路徑：**
    The reply supplies the owner's local folder path. 回覆提供擁有人的本機資料夾路徑。
+   The owner's username is masked in this capture; all other pixels are unaltered. 此圖已遮蓋擁有人的使用者名稱，其他像素未改動。
 
    ![Reply showing the configured local save folder](images/evidence/evidence-02-configured-save-path.png)
 
@@ -51,6 +53,7 @@ time. This is not evidence that the earlier model was backed up.
    The reply reports a completed `.blend` copy and explicitly warns that the
    current scene was the default scene, not the earlier model. 回覆報告 `.blend`
    副本已完成，並明確提醒目前是預設場景，而非較早前的模型。
+   The owner's username is masked in this capture; all other pixels are unaltered. 此圖已遮蓋擁有人的使用者名稱，其他像素未改動。
 
    ![Reply reporting a saved blend copy and the default-scene caveat](images/evidence/evidence-03-save-copy-reply.png)
 
@@ -69,14 +72,17 @@ time. This is not evidence that the earlier model was backed up.
 
 ## Tested scope and limits / 測試範圍與限制
 
-Tested on **macOS Apple-silicon with Python 3.10 + Tk**. The reported test run
-had **187 passing tests and 2 honest skips**. The release was **not** tested on
+The earlier private-source run reported **187 passing tests and 2 honest skips**;
+that suite is absent from this public checkout and was not rerun against this
+documentation update. Recorded Mac scope is **Apple-silicon with Python 3.10 + Tk**.
+The release was **not** tested on
 Intel Macs, across a full machine reboot, in a long-duration soak, under real
 VPN exit-IP rotation, for notarization, or across all ChatGPT plans or regions.
 The controller requires no fixed public IP, but support for any particular VPN
 exit is not guaranteed.
 
-已測試環境為 **Apple 晶片 Mac、Python 3.10 + Tk**；所記錄測試結果為
-**187 項通過、2 項如實跳過**。尚未測試 Intel Mac、整機重新啟動、長時間連續運行、
+較早的私人來源測試回報 **187 項通過、2 項如實跳過**；公開 checkout 沒有該測試套件，
+本次文件更新沒有重跑。已記錄的 Mac 範圍為 **Apple 晶片、Python 3.10 + Tk**。
+尚未測試 Intel Mac、整機重新啟動、長時間連續運行、
 真實 VPN 出口 IP 輪換、公證，以及所有 ChatGPT 方案或地區。控制器不要求固定公網
 IP，但不保證任何指定 VPN 出口均可用。

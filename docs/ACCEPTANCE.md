@@ -6,7 +6,7 @@ Automated tests in this delivery exercise real Python filesystem operations and
 synthetic service/metrics responses in a Linux sandbox. They are not a test of
 macOS launchd, Keychain, Tk/Aqua, OpenAI credentials or an actual ChatGPT account.
 See the separate CODEX return test report for the executed count, command and log.
-Historical v2.0.0/v2.0.1-rc1 results do not certify this candidate.
+Historical v2.0.0/v2.0.1-rc1 results do not certify the current 2.0.1-rc2 candidate. The public export has no `tests/` directory; do not run test discovery in this checkout or treat a missing suite as a pass.
 The three original test files were read but were not executed against rc2 here.
 The new test_rc2 suite is not a claim that full-repository discovery passes; Codex
 must reconcile legacy API/expectation changes and run the whole intended suite
@@ -14,7 +14,7 @@ before deployment. 原有三份測試只讀過，未在 rc2 執行；不可把�
 
 | Gate / 驗收項目 | Required evidence / 所需證據 | Earlier delivery / 較早階段 |
 |---|---|---|
-| Candidate tests / 候選測試 | Run `python3 -m unittest discover -s tests -p 'test_rc2_*.py' -v` | Executed in Linux; see report / Linux 已執行 |
+| Candidate tests / 候選測試 | Historical private-source suite, not available in this public checkout / 私人來源的歷史測試套件；公開 repo 不包含 `tests/` | Executed in Linux at the earlier delivery; not rerun here / 較早階段於 Linux 執行；本次未重跑 |
 | Real install/update/rollback / 實機安裝更新還原 | Correct configured labels, receipt/bundle version/hash; preserve settings and live Blender | Not executed / 未執行 |
 | launchd lifecycle / 服務生命週期 | One tunnel PID; Stop survives login; no second supervisor; no Blender termination | Mocked behavior only / 只有模擬行為測試 |
 | Network outage/recovery / 中斷恢復 | Observe naturally occurring offline/IP change/resume without changing network settings; recent failure revokes normal | Synthetic fixtures only / 只有合成測試 |

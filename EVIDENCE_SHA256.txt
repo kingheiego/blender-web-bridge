@@ -1,5 +1,5 @@
 52617290d6b23fcc92b2e7dee6e36876a3dd3680bdc9b1ffd25f40f675b7d85d  docs/images/evidence/evidence-01-connector-chip-and-ask.png
-291bfa5d93adf7b1c536d5211613570bd4234aefb936b5eaf41daa95f6ab7655  docs/images/evidence/evidence-02-configured-save-path.png
-11212fb0d2023f34f287c83c816c9d979fc57432338d4740713b4745f5d93aa6  docs/images/evidence/evidence-03-save-copy-reply.png
+b004e008139dde75661601259c5e06345620cab258f25b49ccdc4c66c70a4bd3  docs/images/evidence/evidence-02-configured-save-path.png
+b823104fd95c60cf5beb5a89d975d7113efc017c4b38ff8863c3504efc0c1c15  docs/images/evidence/evidence-03-save-copy-reply.png
 19f247202583add7aef86ca6de236327e44cad716a4b3a5068b2b7d7023f1099  docs/images/evidence/evidence-04-new-chat-connector-chip.png
 bffd3b65dc51bfb77dd63eb4a65d21f5aab8c022121f10e75d8f03e23b6ef2f0  docs/images/evidence/evidence-05-get-scene-info-result.png
