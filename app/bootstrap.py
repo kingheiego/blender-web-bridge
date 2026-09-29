@@ -1,3 +1,4 @@
+# Author / 作者水印: @kinghei.ego/@ai.alter
 """Install pinned, hash-verified runtime components in the user's own data folder."""
 import hashlib
 import json

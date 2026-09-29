@@ -27,3 +27,6 @@ In ChatGPT connector settings, click `Refresh tools`.
 Start a NEW conversation; see [connection recovery](CONNECTION_RECOVERY.md).
 
 For a longer agent prompt, see [Install with an AI](INSTALL_WITH_AI.md). The app is not affiliated with OpenAI and is not notarized.
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

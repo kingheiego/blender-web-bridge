@@ -1,3 +1,4 @@
+# Author / 作者水印: @kinghei.ego/@ai.alter
 """Conservative, read-only cloud observations; never starts or restarts services.
 
 Contract: local readyz is not a cloud or web acceptance test. Error counters are

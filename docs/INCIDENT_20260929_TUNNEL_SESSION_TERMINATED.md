@@ -25,3 +25,6 @@ The controller's cloud layer still showed `unknown` because a required error-cou
 The controller now says **“Loaded, no running PID; press Connect to restart.”** Its existing Connect path starts that loaded service once. The LaunchAgent policy and 60-second throttle remain unchanged, preserving normal exit on prerequisite failure without a restart loop. Recovery from a clean exit requires a user click; automatic clean-exit recovery is **not** claimed. The [English](CONNECTION_RECOVERY.md) and [繁體中文](CONNECTION_RECOVERY.zh-Hant.md) guides explain that click and the new-conversation tool refresh.
 
 控制程式現時會顯示**「服務已載入但沒有程序；按『一鍵連接』重新啟動」**，既有 Connect 路徑會要求該服務啟動一次。LaunchAgent 規則和 60 秒節流不變，保留前置條件失敗時正常退出、不循環重啟的特性。正常退出後仍**需要使用者按一次**；本次不聲稱已實現自動恢復。詳見[英文](CONNECTION_RECOVERY.md)及[繁體中文](CONNECTION_RECOVERY.zh-Hant.md)恢復指南。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

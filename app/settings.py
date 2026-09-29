@@ -1,3 +1,4 @@
+# Author / 作者水印: @kinghei.ego/@ai.alter
 """Per-user configuration. No account identifiers belong in the source tree."""
 import json
 import os

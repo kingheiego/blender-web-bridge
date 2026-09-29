@@ -62,3 +62,6 @@ This is agent-assisted local setup, **not one-click or fully hands-off**. HUMAN 
 | [OpenAI Secure MCP Tunnel documentation](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) | Check eligibility and set up your own tunnel/custom app/key. / 核對資格並建立自己的通道、App、金鑰。 |
 | [OpenAI tunnel-client project](https://github.com/openai/tunnel-client) | Review the upstream client; the app downloads its own pinned, hash-verified copy. / 查看上游客戶端；App 會下載固定及核對雜湊的版本。 |
 | [This GitHub repository](https://github.com/kingheiego/blender-web-bridge) | Choose **Code → Download ZIP** or copy the clone URL. / 下載 ZIP 或複製 clone 網址。 |
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

@@ -66,3 +66,6 @@ Observe naturally occurring outages and recovery only within separately approved
 local acceptance. Do not use restart loops to evade region policy.
 Official region information (checked 2026-09-29):
 https://help.openai.com/en/articles/7947663-chatgpt-supported-countries
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

@@ -47,3 +47,6 @@ The repository commit only corrects this document. The ChatGPT icon is **not fix
 3. **Refresh tools** 可能更新工具資料，但沒有文件保證它會更新插件圖示。重新加入連接器亦未經驗證，可能產生另一個 App。本次沒有執行任何一項。不可把圖片網址填入 tunnel、App 名稱或描述欄位。
 
 本次 commit 只修正文件；ChatGPT 圖示**尚未修好，亦沒有重新做畫面驗證**。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

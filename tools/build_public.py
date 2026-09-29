@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Author / 作者水印: @kinghei.ego/@ai.alter
 """Build an allowlisted public source ZIP only after all privacy/media gates pass."""
 import argparse
 import hashlib

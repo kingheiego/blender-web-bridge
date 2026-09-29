@@ -33,3 +33,6 @@ launchctl kickstart -k "gui/$(id -u)/YOUR_TUNNEL_LABEL"
 較早版本可能在通道正常退出後，留下「服務已載入、程序已停止」的狀態。現時控制程式會明示**按 Connect**，而按鈕只要求啟動一次。異常退出仍有 60 秒節流；正常退出**不會**自動重啟，因為憑證或其他啟動前置條件失敗時也會正常退出，必須避免循環重啟。因此這是**一鍵恢復**，並非任何退出都會自動恢復。
 
 另見 [2026-09-29 事故紀錄](INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md)及[英文指南](CONNECTION_RECOVERY.md)。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

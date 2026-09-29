@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author / 作者水印: @kinghei.ego/@ai.alter
 # Pick an interpreter with Tk for the controller, preferring a current 3.11+, and
 # hand it to install.py, which re-runs the shared prerequisite check. Never installs.
 set -eu

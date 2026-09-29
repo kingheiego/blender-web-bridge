@@ -33,3 +33,6 @@ If the label is missing, the status is unknown, a prerequisite is failing, or yo
 An earlier build could leave a tunnel stopped after a clean exit while launchd still showed it as loaded. The current controller identifies “loaded, no running PID” and tells you to press **Connect**; that button requests one start. The policy still retries abnormal exits with a 60-second throttle. It deliberately does **not** auto-restart a clean exit, because missing credentials or another startup prerequisite also cause a clean exit and must not create a restart loop. This is a one-click recovery, not a guarantee of automatic recovery after every exit.
 
 See the [2026-09-29 incident record](INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md) and [Traditional Chinese guide](CONNECTION_RECOVERY.zh-Hant.md).
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

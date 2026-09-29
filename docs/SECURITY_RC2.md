@@ -46,3 +46,6 @@ unchanged: OpenAI tunnel-client 0.0.15, uv 0.10.0, MCP for Blender 2.1.0 and its
 dependencies. Binaries are not bundled. The Python transitive requirement versions
 are pinned, but this work does not add a complete per-wheel hash lock; runtime
 supply-chain verification beyond existing primary artifact hashes remains a gap.
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

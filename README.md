@@ -1,5 +1,7 @@
 # Blender Web Bridge · 2.0.1-rc2
 
+Watermark / 作者水印: @kinghei.ego/@ai.alter
+
 Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure MCP Tunnel. This is a per-user macOS desktop controller and Python bridge.
 
 ## Deploy with one line / 一句交畀 AI
@@ -76,3 +78,5 @@ The following observations are from one Apple-silicon Mac, not a guarantee for e
 An earlier private-source run reported **187 passes and 2 honest skips** on macOS Apple-silicon with Python 3.10 + Tk; the public checkout has no `tests/`, and that suite was not rerun for this documentation update. The controller needs no fixed public IP and does not change VPN, routes, DNS, Tailscale, or proxy. `launchd` is its sole supervisor; the pinned tunnel client handles its own retry/backoff. / 較早的私人來源測試回報 **187 項通過、2 項如實跳過**；公開 checkout 沒有 `tests/`，本次文件更新沒有重跑。控制器不需固定公網 IP，也不改 VPN、路由、DNS、Tailscale 或 proxy；由 `launchd` 單獨監督服務，固定版本通道程式自行重試。
 
 Controller license: [MIT](LICENSE). No runtime binary, Python installation, account, tunnel, or credential is distributed. / 控制程式採用 MIT 授權；不附執行程式、Python、帳戶、通道或憑證。
+
+Author / 作者: @kinghei.ego/@ai.alter

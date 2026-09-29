@@ -86,3 +86,6 @@ exit is not guaranteed.
 尚未測試 Intel Mac、整機重新啟動、長時間連續運行、
 真實 VPN 出口 IP 輪換、公證，以及所有 ChatGPT 方案或地區。控制器不要求固定公網
 IP，但不保證任何指定 VPN 出口均可用。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

@@ -62,3 +62,6 @@ turn historical cases into new rc2 runs. / 上述圖片已在 repo 內，路徑�
 SHA-256 記於 [`release-assets.json`](../release-assets.json)，
 [公開批准紀錄](../RELEASE_IMAGE_REVIEW.json)記錄了現有雜湊的覆核。
 較早的圖片缺失說明已不適用，但歷史案例**沒有**因此變成 rc2 新測試。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

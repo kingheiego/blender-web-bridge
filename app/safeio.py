@@ -1,3 +1,4 @@
+# Author / 作者水印: @kinghei.ego/@ai.alter
 """Local filesystem primitives shared by the installer and desktop controller.
 
 Locks are never unlinked. Refuse symlinks (including dangling ones), special

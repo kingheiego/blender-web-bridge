@@ -41,3 +41,6 @@ Every user needs their own eligible ChatGPT setup, tunnel, key and local paths; 
 ## Is it safe to leave the tunnel running?
 
 The Blender socket listens only on loopback, and the tunnel connects **outbound** to OpenAI. That limits network exposure but is not a guarantee against local processes or bad tool calls. **Stop / 停止通道** stops only the tunnel and keeps Blender open. Closing the desktop panel **does not disconnect** it. Stop the tunnel when you do not need ChatGPT access, and save your Blender work normally.
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter

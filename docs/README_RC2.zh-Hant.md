@@ -1,5 +1,7 @@
 # Blender Web Bridge 使用說明
 
+Watermark / 作者水印: @kinghei.ego/@ai.alter
+
 現行 GitHub 入口是[根目錄 README](../README.md)；此獨立說明仍由本機安裝器複製，
 故保留離線可讀的操作重點。完整步驟見[英文入門指南](GETTING_STARTED.md) ·
 [繁體中文入門指南](GETTING_STARTED.zh-Hant.md) · [所有連結](LINKS.md)。
@@ -46,3 +48,5 @@ Connect 可能啟動受管理的 Blender。一鍵連接後有四層：Blender �
 僅遮蓋本機路徑中的使用者名稱，其他像素未改動，詳見[驗證證據](VERIFICATION_EVIDENCE.md)。
 `tools/build_public.py` 仍會檢查發佈圖片審批。
 詳見根目錄 `README_RC2.md` 及 `release-assets.json`。不保證所有 VPN 出口、Mac、帳戶均支援。
+
+Author / 作者: @kinghei.ego/@ai.alter

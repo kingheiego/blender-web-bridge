@@ -21,3 +21,6 @@ The export is a snapshot, not proof of an actual web call.
 
 Do not automatically repeat a failed modeling request. Its effect may already
 have reached Blender even if the response was lost. / 建模回覆遺失不代表沒有執行，勿自動重試。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter
