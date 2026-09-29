@@ -7,6 +7,7 @@ Use this map to move between the public guide, evidence, and upstream prerequisi
 | Link / 連結 | When to use it / 何時使用 |
 |---|---|
 | [README](../README.md) | Nine-step bilingual quick start and verified-scope table. / 雙語九步快速開始及實測範圍。 |
+| [Install with an AI — English](INSTALL_WITH_AI.md) and [交給 AI 協助安裝 — 繁體中文](INSTALL_WITH_AI.zh-Hant.md) | Copy one prompt to an AI agent for local setup, then perform the account-side steps and a simple cat test. / 複製提示詞讓 AI 協助本機安裝，再完成帳戶設定和簡單的貓模型測試。 |
 | [Getting started — English](GETTING_STARTED.md) | Full, illustrated walkthrough for a first install. / 英文首次安裝全流程圖解。 |
 | [入門指南 — 繁體中文](GETTING_STARTED.zh-Hant.md) | 同一流程的完整繁體中文圖解。 / Full Traditional Chinese walkthrough. |
 | [FAQ — English](FAQ.md) and [常見問題 — 繁體中文](FAQ.zh-Hant.md) | Plain answers on account eligibility, local execution, risks and limits. / 帳戶資格、本機執行、風險與限制。 |

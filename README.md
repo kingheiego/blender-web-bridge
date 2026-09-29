@@ -2,7 +2,7 @@
 
 Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure MCP Tunnel. This is a per-user macOS desktop controller and Python bridge. It does not create a ChatGPT account, tunnel, or runtime key. Follow the [illustrated English guide](docs/GETTING_STARTED.md) or [繁體中文圖解](docs/GETTING_STARTED.zh-Hant.md) for more detail.
 
-**Start here / 由這裡開始：** [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [English FAQ](docs/FAQ.md) · [繁體中文常見問題](docs/FAQ.zh-Hant.md) · [Connection recovery](docs/CONNECTION_RECOVERY.md) · [連線恢復](docs/CONNECTION_RECOVERY.zh-Hant.md) · [2026-09-29 incident / 事故紀錄](docs/INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md) · [All links / 所有連結](docs/LINKS.md).
+**Start here / 由這裡開始：** [Install with an AI](docs/INSTALL_WITH_AI.md) · [交給 AI 協助安裝](docs/INSTALL_WITH_AI.zh-Hant.md) · [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [English FAQ](docs/FAQ.md) · [繁體中文常見問題](docs/FAQ.zh-Hant.md) · [Connection recovery](docs/CONNECTION_RECOVERY.md) · [連線恢復](docs/CONNECTION_RECOVERY.zh-Hant.md) · [2026-09-29 incident / 事故紀錄](docs/INCIDENT_20260929_TUNNEL_SESSION_TERMINATED.md) · [All links / 所有連結](docs/LINKS.md).
 
 ## Requirements / 需求
 

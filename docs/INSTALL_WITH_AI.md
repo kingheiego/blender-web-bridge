@@ -1,0 +1,36 @@
+# Install with an AI agent
+
+Give the first prompt below to an AI coding agent **working on your own Mac**. It can check prerequisites, install the local controller, prepare pinned components, and show you what remains. You must have a ChatGPT account, workspace, plan, and region eligible for Secure MCP Tunnel and custom connectors. Only you can complete the account-side steps: create your own connector app and Tunnel, obtain its Tunnel ID and runtime key in the OpenAI/ChatGPT UI, and approve any consent screens. The bridge is not affiliated with OpenAI and creates none of these. Never create or request secrets in chat. Enter the runtime key only in the desktop app's masked field; the app stores it in macOS Keychain.
+
+## Prompt for the AI coding agent on your Mac
+
+```text
+Help me install Blender Web Bridge on my own Mac. Work in this order and report what actually happened; do not claim the web connection works until a real ChatGPT tool call succeeds.
+
+1. Clone https://github.com/kingheiego/blender-web-bridge.git into a new local directory (never overwrite an existing checkout), then work from the repo root.
+2. Verify macOS, a local Blender.app, and Python 3.10+ with Tk. Run `./Install.command --check`; it checks Python/Tk without installing. If a prerequisite is missing, help me obtain Blender or Python from its official macOS source, handle any required human approval with me, and rerun the check. Do not claim the repo bundles Python or Blender.
+3. Before installation, inspect `install.py` and tell me the exact paths it would write with its default settings (or the exact custom paths if we agreed on them). Then run `./Install.command` (or `python3 install.py` with the same chosen paths) and check its actual result and Desktop app. Do not start or stop Blender.
+4. Open the installed Blender Web Bridge.app. In Setup / 設定, click Prepare components / 準備元件 only after confirming both managed services, including the tunnel, are stopped and the Blender port is inactive. If they are active or their state is uncertain, stop here and tell me what I must close or stop; do not stop Blender or a service for me. Let the app download its pinned components and verify their SHA-256 hashes. Report the actual completion or failure; never bypass a hash mismatch.
+5. Run the repo test command with a real symlink-free temporary directory: `TMPDIR=<symlink-free dir> python3 -m unittest discover -s tests -v`. Replace the placeholder with an actual directory on this Mac. Report the interpreter, tests run, passes, skips, failures, and errors exactly. If `tests/` is missing or zero tests run, say that no public test suite was run; do not report the historical count as this run's result.
+6. Give me a short remaining-setup checklist. I must confirm account eligibility and create my own connector app and Tunnel in the OpenAI/ChatGPT UI, obtain my Tunnel ID and runtime API key, and approve any consent screens. Tell me to enter the local Blender path in `Blender.app`, my Tunnel ID in `Tunnel ID / 通道 ID`, the connector app's display name in `Tool display name / 工具顯示名稱`, and my chosen absolute local save path in `Output folder / 輸出資料夾`. I will paste my existing runtime key myself into the masked `Existing runtime key / 已有通道金鑰` field and click `Save setup / 儲存設定`; the app stores that key in macOS Keychain. Never create a key, Tunnel, connector app, or account for me; never ask me to paste a secret into chat, a command, a file, or a log. Do not claim Connect installs dependencies or completes these web-side steps.
+```
+
+`Install.command` installs the controller, but does not download runtime components or start Blender or the tunnel. **Prepare components** is a separate action. After you complete Setup, open **Status / 狀態** and click **Connect / 一鍵連接** to start the tunnel, then **Check / 檢查**. Connect does not install Python, Blender, components, a connector app, a Tunnel, or a key. For the detailed account and Mac walkthrough, see [Getting started](GETTING_STARTED.md) and the [official OpenAI Secure MCP Tunnel guide](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels).
+
+## Prompt for ChatGPT after your app and Tunnel exist
+
+First complete the account and local Setup checklist. In the desktop app, click **Connect / 一鍵連接**. In ChatGPT, open your app's connector settings and click **Refresh tools once**. Start a **NEW conversation**, select your app in the composer with **@ / tools**, then paste this prompt there. Complete any consent screen yourself.
+
+```text
+I created my own connector app and Secure MCP Tunnel, completed Blender Web Bridge Setup, prepared components, clicked Connect, then clicked "Refresh tools" once in my app's ChatGPT connector settings. This is a NEW conversation and I have selected my app in the composer. Use its real tools to inspect the current Blender scene, make the simplest cat from a cube in a separate scene while preserving existing work, and save it to my configured output folder. Report the actual tool result and saved path. If no tool is called, say so clearly; do not describe an imagined model as a completed test.
+```
+
+## The 30-second test request
+
+This is a short request to send in the **new conversation** after selecting the app; it is not a promise that modeling or saving finishes in 30 seconds.
+
+> 幫我整個最簡單嘅測試：用一個立方體做隻簡單嘅貓出嚟，做完幫我存好。
+
+English: “Please do the simplest test: make a simple cat from a cube, then save it for me.”
+
+Good means you see a real connector tool call, a small cat model appears in Blender, and a file is saved in your configured output folder. If ChatGPT makes no tool call, check the desktop app's **Status / 狀態** layers, open your app's connector settings and click **Refresh tools once**, then open a **NEW conversation** and select the app again. A conversation created while the tunnel was down may keep reporting no tools. See [Connection recovery](CONNECTION_RECOVERY.md), [連線恢復](CONNECTION_RECOVERY.zh-Hant.md), and [RC2 troubleshooting](TROUBLESHOOTING_RC2.md).
