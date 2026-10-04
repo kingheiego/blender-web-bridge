@@ -44,6 +44,34 @@ def private_dir(path: Path) -> Path:
     return path
 
 
+def read_regular_bytes(path: Path, *, max_bytes=None, private=False) -> bytes:
+    """Read one checked inode; do not follow links or block on special files."""
+    path = checked_path(path)
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    try:
+        info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+            raise UnsafePath('Expected a singly linked regular file / 需要單一連結的普通檔案')
+        if private and (info.st_uid != os.getuid() or info.st_mode & 0o077):
+            raise UnsafePath('Private file ownership or permissions differ / 私人檔案權限或擁有者不符')
+        current = checked_path(path).lstat()
+        if (current.st_dev, current.st_ino) != (info.st_dev, info.st_ino):
+            raise UnsafePath('File identity changed / 檔案身份已改變')
+        if max_bytes is not None and info.st_size > max_bytes:
+            raise UnsafePath('File exceeds size limit / 檔案超出大小限制')
+        with os.fdopen(fd, 'rb', closefd=False) as stream:
+            data = stream.read() if max_bytes is None else stream.read(max_bytes + 1)
+        if max_bytes is not None and len(data) > max_bytes:
+            raise UnsafePath('File exceeds size limit / 檔案超出大小限制')
+        after = os.fstat(fd)
+        if after.st_nlink != 1 or (private and
+                (after.st_uid != os.getuid() or after.st_mode & 0o077)):
+            raise UnsafePath('File safety changed during read / 讀取時檔案安全狀態改變')
+        return data
+    finally:
+        os.close(fd)
+
+
 def fsync_dir(path: Path) -> None:
     fd = os.open(checked_path(path), os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
     try:

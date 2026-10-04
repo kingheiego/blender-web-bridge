@@ -1,5 +1,32 @@
-# Validation / 驗證
+# 驗證摘要 / Validation — 2.0.1-rc3
 
-An earlier private-source run reported **187 passing tests and 2 honest skips**; the public checkout has no `tests/` and those tests were not rerun for this documentation update. Recorded Mac scope is **Apple-silicon, Python 3.10 + Tk**. The [2026-09-29 web evidence](docs/VERIFICATION_EVIDENCE.md) shows a connector in a fresh conversation, a read-only scene result, a natural-language default-folder answer, and a real save copy of the **currently open default scene**. It does not establish that an earlier model was saved. / 較早的私人來源測試回報 **187 項通過、2 項如實跳過**；公開 checkout 沒有 `tests/`，本次文件更新沒有重跑。已記錄的 Mac 範圍是 **Apple 晶片、Python 3.10 + Tk**。[網頁驗證證據](docs/VERIFICATION_EVIDENCE.md)顯示新對話的連接器、唯讀場景結果、自然語言查詢預設資料夾，以及**當時開啟的預設場景**真實另存副本；不能證明較早前的模型已儲存。
+日期：2026-10-04。狀態：**公開測試版 / Public prerelease**。
 
-**Not tested / 未測：** Intel Macs, full machine reboot, long-duration soak, real VPN exit-IP rotation, notarization, and all ChatGPT plans or regions. The earlier [candidate acceptance checklist](docs/ACCEPTANCE.md) is a planning record, not a blanket pass for these gaps. / Intel Mac、整機重新啟動、長時間連續運行、真實 VPN 出口 IP 輪換、公證、所有 ChatGPT 方案或地區均未測。較早的[候選版驗收清單](docs/ACCEPTANCE.md)是階段紀錄，不能當成以上項目全數通過。
+本版修正已重現的檔案處理問題，並完成下列檢查。通過的範圍逐項列明；沒有把模擬測試、舊版網頁案例或檔案存在當成完整新版本實機驗收。
+
+| 項目 | 結果與範圍 |
+| --- | --- |
+| 完整來源回歸測試 | Python 3.10.13：202 項，200 通過、2 略過。略過的是未具備第二個檔案系統的實體跨裝置測試；錯誤注入與拒絕路徑另有測試。 |
+| 新增路徑安全回歸 | 15 項全部通過：硬連結、父層符號連結、特殊檔案、並發出現目的檔、失敗清理、權限不變及憑證讀取限制。只用合成檔案，沒有讀真實秘密。 |
+| 首次元件準備 | 在 Mac 的獨立資料目錄實際下載並核對固定版本 uv、tunnel-client、MCP wheel，建立 Python／依賴環境及 Blender addon；沒有啟動 Blender 或通道。 |
+| Mac 安裝、升級、還原 | 用獨立資料目錄和不存在的測試服務名稱，執行真實 launchctl 狀態查詢及檔案交易。rc2 安裝後升級 rc3（build 20103），再精確還原前一版檔案雜湊；設定檔不變。沒有更新使用者現行安裝。 |
+| 新 MCP 環境的本機連線 | 真實 STDIO 列出 37 個工具；get_bridge_settings 成功，get_scene_info 連續兩次讀到相同本機場景。沒有修改、存檔或重啟現行 Blender／通道。 |
+| ChatGPT 網頁案例 | 2026-10-03 的機舖及街景是真實既有 runtime 案例；不是 rc3 完整網頁重新部署驗收。rc3 未改 MCP 工具協定或模型建模路徑。 |
+| 圖片 | 原有 ZIP 圖片維持既有雜湊和批准紀錄；新圖集有獨立來源及 metadata 清單，不改 ZIP 白名單。 |
+
+## 尚未驗證／不作承諾
+
+- Intel 實機、整機重開、斷電、長時間連續運行及所有帳戶／地區。
+- rc3 覆蓋使用者現行安裝後的完整 GUI 與 ChatGPT 網頁部署流程；本轮安裝驗收使用隔離目錄。
+- 通道正常退出的所有觸發原因，或永久自動恢復。正常退出後可能需要按 Connect，必要時在新對話重新選工具；不能把重啟當成取得帳戶或地區資格。
+- OS／檔案系統沙盒、任意本機插件的自動啟用或無限檔案存取隔離。Safe Mode 不是 OS 沙盒。
+- 所有 Python 依賴的逐 wheel 雜湊。元件收據只標示三個主要下載物的 SHA-256 驗證，不再用籠統 PASS 代表整個供應鏈。
+
+## 已修正
+
+下載使用獨立、獨佔建立的暫存檔，驗證後以不覆蓋既有目的檔的方式提交。舊 `.partial` 硬連結會被拒絕，其他舊暫存檔不會被截斷。準備元件前先檢查完整目錄路徑，不會 chmod 任意既存使用者目錄。舊式 opt-in 憑證檔必須是使用者擁有、私有且單一連結的普通檔案；父層符號連結、FIFO 和過大檔案會拒絕。
+
+較早 rc2／rc1 的測試數目及結果屬歷史紀錄，不應混加到本版結果。
+
+---
+Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

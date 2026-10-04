@@ -19,7 +19,7 @@ import keychain_store
 import settings
 from safeio import FileLock, atomic_json, checked_path
 
-VERSION = '2.0.1-rc2'
+VERSION = '2.0.1-rc3'
 
 
 def public_status(snapshot):

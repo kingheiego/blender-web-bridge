@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "version": "2.0.1-rc3",
+  "build": 20103,
+  "date": "2026-10-04",
+  "status": "public_prerelease",
+  "full_source_tests": {
+    "ran": 202,
+    "passed": 200,
+    "skipped": 2,
+    "skip_reason": "Second physical filesystem not available"
+  },
+  "public_tests": {
+    "ran": 15,
+    "passed": 15,
+    "command": "python3 -m unittest discover -s tests -p 'test_rc3_path_safety.py' -v"
+  },
+  "mac_isolated_validation": {
+    "fresh_component_download_and_setup": "PASS",
+    "install_update_exact_rollback": "PASS",
+    "configuration_preserved": true,
+    "new_runtime_stdio_tool_count": 37,
+    "real_read_only_scene_queries": 2,
+    "existing_owner_installation_updated": false
+  },
+  "zip": {
+    "version": "2.0.1-rc3",
+    "zip": "Blender-Web-Bridge-v2.0.1-rc3.zip",
+    "sha256": "4da1d7d6071770966988af30bde4a43fbcd6ced79b81207361046ea1056d733b",
+    "zip_files": 38,
+    "all_code_matches_public": true,
+    "links_and_python_syntax": "PASS"
+  },
+  "limitations": [
+    "Not an OS or filesystem sandbox",
+    "Clean tunnel exit may require Connect; original trigger unconfirmed",
+    "No rc3 full GUI and ChatGPT web redeployment on the owner installation",
+    "Intel, full reboot, extended soak and all account regions untested"
+  ],
+  "evidence_hashes": {
+    "final-full-tests.log": "1ed256ee68fcfb13904a74b0bf954f9969e2c299f412bd94f3471e442250e986",
+    "final-public-tests.log": "ecc8949a99cc61f30a1f18b7ce7d3b5f303af974b4e810746d2834a096b94f6f",
+    "first-run-result.json": "6f0e640ba0494528ab763a507d5a726b41da79a86eb10b04fc68ca66e64b191b",
+    "native-install-update-rollback.json": "77f1205cc4ba2c1b069e6cd52cf558260937466b0ce112668cd3d385de80ba66",
+    "stdio-canary.json": "553281a6907b18a6b3206c3e1aebfcc862cba780c3c5afc37bfaeed8bc6ebb51",
+    "final-zip-verification.json": "838b8ccf19f1d55b3e174e0d7c4beca5ed265bd012505df74fa34df4e699e0f9"
+  }
+}
