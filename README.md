@@ -4,6 +4,12 @@ Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
 Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure MCP Tunnel. This is a per-user macOS desktop controller and Python bridge.
 
+## 實際案例與圖片
+
+[查看完整圖集：日本遊戲中心、照片參考街景 →](docs/showcase/README.md)
+
+圖集包含參考相片、實際提示詞、六張不同視角的 Blender 渲染及操作證據。沒有參考圖的案例則直接列出提示詞。這批是開發實測展示，不代表所有功能或所有環境已完成驗收。
+
 ## Deploy with one line / 一句交畀 AI
 
 Paste this single line into an AI coding agent working on your Mac; the agent can clone the repo itself:
