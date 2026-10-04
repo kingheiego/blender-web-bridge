@@ -2,6 +2,7 @@
 """macOS Keychain storage through Security.framework; no secret argv or stdout."""
 import ctypes
 from pathlib import Path
+from safeio import read_regular_bytes
 
 SERVICE = b"org.blenderwebbridge.runtime-key"
 NOT_FOUND = -25300
@@ -81,10 +82,14 @@ def load_credential(config):
         result = get(spec.get("account", "default"))
     elif spec.get("provider") == "env_file" and config.get("allow_legacy_env_file"):
         path = Path(spec["path"])
-        if path.is_symlink() or path.stat().st_mode & 0o077:
-            raise RuntimeError("Legacy credential file must be private and not a symlink")
+        try:
+            text = read_regular_bytes(path, max_bytes=65536, private=True).decode("utf-8")
+        except (OSError, ValueError, UnicodeError):
+            raise RuntimeError(
+                "Legacy credential file must be private, owned and free of links"
+            ) from None
         result = None
-        for line in path.read_text().splitlines():
+        for line in text.splitlines():
             if line.startswith("CONTROL_PLANE_API_KEY="):
                 result = line.split("=", 1)[1].strip().strip('"').strip("'")
     else:

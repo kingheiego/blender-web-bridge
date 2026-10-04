@@ -21,7 +21,7 @@
 
 | 參考相片 | Blender 實際渲染 |
 | --- | --- |
-| ![使用者提供的街景參考相片](2026-10-03/images/street-reference.jpg) | ![移除人物後的三維街景主視角](2026-10-03/images/street-result.png) |
+| <img src="2026-10-03/images/street-reference.jpg" alt="使用者提供的街景參考相片" width="420"> | <img src="2026-10-03/images/street-result.png" alt="移除人物後的三維街景主視角" width="420"> |
 
 [查看完整提示詞、左右側面及續作紀錄 →](2026-10-03/street.md)
 

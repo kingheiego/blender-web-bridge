@@ -1,4 +1,4 @@
-# Blender Web Bridge · 2.0.1-rc2
+# Blender Web Bridge · 2.0.1-rc3
 
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
@@ -12,7 +12,7 @@ local installer copies it into the support folder.
 On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.
 ```
 
-**Start here / 由這裡開始：** [English getting started](docs/GETTING_STARTED.md) · [繁體中文入門](docs/GETTING_STARTED.zh-Hant.md) · [All links / 所有連結](docs/LINKS.md).
+**Start here / 由這裡開始：** [English getting started](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/GETTING_STARTED.md) · [繁體中文入門](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/GETTING_STARTED.zh-Hant.md) · [All links / 所有連結](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/LINKS.md).
 
 **Review candidate, not a hardware-accepted release. / 審核候選版，尚未完成實機驗收。**
 
@@ -80,7 +80,7 @@ are changed. No model-changing operation is replayed by this controller.
 [Troubleshooting / 排錯](docs/TROUBLESHOOTING_RC2.md) · [Acceptance / 驗收](docs/ACCEPTANCE.md) ·
 [Security / 私隱](docs/SECURITY_RC2.md) · [Recovery design / 恢復設計](docs/NETWORK_RECOVERY.md)
 
-**Verification evidence / 驗證證據：**[bilingual notes / 雙語說明](docs/VERIFICATION_EVIDENCE.md) · [five screenshots, with the owner's username masked in two / 五張截圖，其中兩張已遮蓋使用者名稱](docs/images/evidence/)
+**Verification evidence / 驗證證據：**[bilingual notes / 雙語說明](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/VERIFICATION_EVIDENCE.md) · [five screenshots, with the owner's username masked in two / 五張截圖，其中兩張已遮蓋使用者名稱](https://github.com/kingheiego/blender-web-bridge/tree/main/docs/images/evidence)
 
 **Media completeness:** all nine original images/icon are present in this tree,
 hash-matched and approved for public distribution. `tools/build_public.py` enforces
@@ -91,3 +91,5 @@ Controller license: MIT. Pinned dependencies retain their upstream licenses.
 No runtime binary or credentials are distributed. / 控制程式為 MIT；不附 runtime 或憑證。
 
 Author / 作者: @kinghei.ego/@ai.alter (GitHub: kingheiego)
+
+本版新增路徑安全修正。完整來源測試 202 項（200 通過、2 略過），並完成 Mac 隔離元件準備、安裝／升級／精確還原及本機 MCP 唯讀驗證。範圍與未測項目見[驗收狀態](docs/ACCEPTANCE.md)。固定檔名中的 RC2 保留以相容現有安裝器。

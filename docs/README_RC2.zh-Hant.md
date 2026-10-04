@@ -3,8 +3,8 @@
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
 現行 GitHub 入口是[根目錄 README](../README.md)；此獨立說明仍由本機安裝器複製，
-故保留離線可讀的操作重點。完整步驟見[英文入門指南](GETTING_STARTED.md) ·
-[繁體中文入門指南](GETTING_STARTED.zh-Hant.md) · [所有連結](LINKS.md)。
+故保留離線可讀的操作重點。完整步驟見[英文入門指南](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/GETTING_STARTED.md) ·
+[繁體中文入門指南](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/GETTING_STARTED.zh-Hant.md) · [所有連結](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/LINKS.md)。
 
 **一句交給 Mac 上的 AI 代理：**
 
@@ -12,7 +12,7 @@ Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.
 ```
 
-本版是 **2.0.1-rc2 程式候選版**，不是已完成 Mac 實機驗收的發佈版。
+本版是 **2.0.1-rc3 程式候選版**，不是已完成 Mac 實機驗收的發佈版。
 
 解壓後先看 [首次設定圖解](SETUP_RC2.html)，再雙擊 `Install.command`。需要自行安裝 Blender、
 Python 3.10 或以上及 Tk，建議 3.11 或以上；MCP 另用固定 Python 3.11 環境。
@@ -40,13 +40,15 @@ Connect 可能啟動受管理的 Blender。一鍵連接後有四層：Blender �
 通道停止或舊對話沒有工具時，先檢查 Blender；有唯讀回應後才按 Connect，否則由本人決定是否按。
 然後在連接器設定刷新工具、開新對話選連接器，核對真正的唯讀工具回覆。
 
-三個案例均是歷史案例，不能當作 rc2 重測。另有 [2026-09-29 有限網頁實測](VERIFICATION_EVIDENCE.md)，
+三個案例均是歷史案例，不能當作 rc2 重測。另有 [2026-09-29 有限網頁實測](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/VERIFICATION_EVIDENCE.md)，
 包括唯讀查詢及當時開啟的預設場景另存副本；這不等於完整 Mac 實機驗收。只有一句話案例保存了原始提示詞；
 另兩個詳細案例明確標示原文未保存。見 [案例](EXAMPLES_RC2.md) 及 [歷史驗收清單](ACCEPTANCE.md)。
 
 九個發佈圖檔／圖示均已在本樹中，雜湊相符並獲准公開發佈；另有兩張網頁證據截圖
-僅遮蓋本機路徑中的使用者名稱，其他像素未改動，詳見[驗證證據](VERIFICATION_EVIDENCE.md)。
+僅遮蓋本機路徑中的使用者名稱，其他像素未改動，詳見[驗證證據](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/VERIFICATION_EVIDENCE.md)。
 `tools/build_public.py` 仍會檢查發佈圖片審批。
 詳見根目錄 `README_RC2.md` 及 `release-assets.json`。不保證所有 VPN 出口、Mac、帳戶均支援。
 
 Author / 作者: @kinghei.ego/@ai.alter (GitHub: kingheiego)
+
+本版新增路徑安全修正。完整來源測試 202 項（200 通過、2 略過），並完成 Mac 隔離元件準備、安裝／升級／精確還原及本機 MCP 唯讀驗證。範圍與未測項目見[驗收狀態](ACCEPTANCE.md)。固定檔名中的 RC2 保留以相容現有安裝器。

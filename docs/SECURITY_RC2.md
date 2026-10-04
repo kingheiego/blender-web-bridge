@@ -49,3 +49,15 @@ supply-chain verification beyond existing primary artifact hashes remains a gap.
 
 ---
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
+
+## 2.0.1-rc3 hardening / 路徑安全修正
+
+Downloads use unique exclusive temporary files and a no-overwrite publish step. Existing legacy partial hardlinks and unsafe cached files are refused. Runtime and state directory trees are validated before setup writes; existing user-chosen directories are not chmodded. Legacy opt-in credential files are opened without following links and checked for regular type, one link, current-user ownership, private permissions and a 64 KiB read bound. Synthetic credentials only were used in tests.
+
+下載、執行目錄及舊式憑證檔的連結檢查已補強，沒有新增權限或改變 Keychain 綁定。這些仍是同一使用者權限下的合作式檔案保護，不是對抗已取得同一帳戶控制權的 OS 沙盒。
+
+The component receipt now uses PRIMARY_ARTIFACTS_PASS with an explicit scope: uv, tunnel-client and the MCP wheel. python_transitive_hashes_verified remains false. This is not a claim that every dependency or managed Python artifact is byte-pinned.
+
+元件收據現以 PRIMARY_ARTIFACTS_PASS 明列三個主要下載物；其餘 Python 依賴只固定版本，沒有冒充全部逐檔雜湊驗證。
+
+同一 Blender 實例一次只由一個對話改寫；模型指引不等於多聊天室寫入隔離。

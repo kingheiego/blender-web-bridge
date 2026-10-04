@@ -8,7 +8,7 @@
 
 | 參考相片（原有人物保留在參考圖中） | 成果（沒有建立任何人物） |
 | --- | --- |
-| ![街景參考相片](images/street-reference.jpg) | ![Blender 街景主視角](images/street-result.png) |
+| <img src="images/street-reference.jpg" alt="街景參考相片" width="420"> | <img src="images/street-result.png" alt="Blender 街景主視角" width="420"> |
 
 **這是近似重建，並非一比一還原。** 建築比例、車輛細節、天空與光影仍有差異；原圖遮擋的位置是合理補建。參考相片只移除了 EXIF、XMP、IPTC 等附加資料，沒有修改畫面像素。
 
@@ -22,7 +22,7 @@
 
 ### 主視角：最終暖光版本
 
-![街景主視角暖光版本](images/street-result.png)
+<img src="images/street-result.png" alt="街景主視角暖光版本" width="420">
 
 ### 右側：最終暖光版本
 

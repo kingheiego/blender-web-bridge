@@ -29,9 +29,9 @@ from safeio import FileLock, atomic_bytes, atomic_json, checked_path, identity, 
 
 MIN_PYTHON = (3, 10)
 RECOMMENDED_PYTHON = (3, 11)
-VERSION = '2.0.1-rc2'
+VERSION = '2.0.1-rc3'
 BUNDLE_SHORT_VERSION = '2.0.1'
-BUNDLE_BUILD = '20102'
+BUNDLE_BUILD = '20103'
 APP_NAME = 'Blender Web Bridge'
 DEFAULT_TUNNEL_LABEL = 'org.blenderwebbridge.tunnel'
 LABEL_RE = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]{0,199}')

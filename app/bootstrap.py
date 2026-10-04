@@ -13,7 +13,9 @@ import urllib.request
 import zipfile
 import contextlib
 import stat
-from safeio import FileLock, atomic_bytes, atomic_json, checked_path
+import tempfile
+from safeio import (FileLock, UnsafePath, atomic_bytes, atomic_json, checked_path,
+                    private_dir, read_regular_bytes, fsync_dir)
 from settings import ROOT, RUNTIME, STATE, CONFIG, validate
 
 
@@ -34,29 +36,58 @@ def architecture(value=None):
 
 
 def verify(path, digest):
-    if hashlib.sha256(Path(path).read_bytes()).hexdigest() != digest:
+    if hashlib.sha256(read_regular_bytes(path, max_bytes=220 * 1024 * 1024)).hexdigest() != digest:
         raise RuntimeError("Download checksum mismatch; refusing to install")
 
 
 def download(spec, path):
-    checked_path(path)
-    checked_path(path.with_suffix(path.suffix + ".partial"))
+    path = checked_path(path)
+    legacy = checked_path(path.with_suffix(path.suffix + ".partial"))
+    if legacy.exists():
+        info = legacy.lstat()
+        if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+            raise UnsafePath("Unsafe legacy download file / 舊下載暫存檔不安全")
     if path.exists():
         verify(path, spec["sha256"])
         return path
-    temporary = path.with_suffix(path.suffix + ".partial")
-    count = 0
-    with urllib.request.urlopen(spec["url"], timeout=40) as source, temporary.open("wb") as target:
-        while True:
-            block = source.read(1024 * 1024)
-            if not block:
-                break
-            count += len(block)
-            if count > 220 * 1024 * 1024:
-                raise RuntimeError("Unexpectedly large download")
-            target.write(block)
-    verify(temporary, spec["sha256"])
-    os.replace(temporary, path)
+    private_dir(path.parent)
+    fd, name = tempfile.mkstemp(prefix="." + path.name + "-", dir=path.parent)
+    temporary = Path(name)
+    owned = os.fstat(fd)
+    try:
+        count, digest = 0, hashlib.sha256()
+        with os.fdopen(fd, "wb") as target:
+            with urllib.request.urlopen(spec["url"], timeout=40) as source:
+                while True:
+                    block = source.read(1024 * 1024)
+                    if not block:
+                        break
+                    count += len(block)
+                    if count > 220 * 1024 * 1024:
+                        raise RuntimeError("Unexpectedly large download")
+                    target.write(block)
+                    digest.update(block)
+            target.flush()
+            os.fsync(target.fileno())
+        if digest.hexdigest() != spec["sha256"]:
+            raise RuntimeError("Download checksum mismatch; refusing to install")
+        info = checked_path(temporary).lstat()
+        if (info.st_dev, info.st_ino) != (owned.st_dev, owned.st_ino) or info.st_nlink != 1:
+            raise UnsafePath("Download file identity changed / 下載暫存檔身份改變")
+        checked_path(path)
+        # An exclusive link publishes the verified inode without replacing a
+        # destination that appeared during the request. The owned temp is removed
+        # below, leaving one link; unrelated legacy .partial files are untouched.
+        try:
+            os.link(temporary, path, follow_symlinks=False)
+        except FileExistsError:
+            verify(path, spec["sha256"])
+        fsync_dir(path.parent)
+    finally:
+        with contextlib.suppress(FileNotFoundError):
+            info = temporary.lstat()
+            if (info.st_dev, info.st_ino) == (owned.st_dev, owned.st_ino):
+                temporary.unlink()
     return path
 
 
@@ -90,11 +121,17 @@ def run(args, timeout=600):
 def _prepare_runtime(notify=lambda message: None):
     if platform.system() != "Darwin":
         raise RuntimeError("This desktop installer is for macOS")
-    RUNTIME.mkdir(parents=True, exist_ok=True)
-    RUNTIME.chmod(0o700)
-    STATE.mkdir(parents=True, exist_ok=True)
+    # Validate every destination tree before the first mkdir/chmod/download.
+    for directory in (RUNTIME, STATE, RUNTIME / "downloads",
+                      RUNTIME / "tunnel-client", RUNTIME / "blender-mcp/.venv/bin",
+                      RUNTIME / "blender-userconfig/scripts/addons"):
+        directory = checked_path(directory)
+        if directory.exists() and not directory.is_dir():
+            raise UnsafePath("Expected runtime directory / 需要執行環境資料夾")
+    private_dir(RUNTIME)
+    private_dir(STATE)
     downloads = RUNTIME / "downloads"
-    downloads.mkdir(exist_ok=True)
+    private_dir(downloads)
     lock = json.loads(package_file("dependencies.lock.json").read_text())
     target = lock["artifacts"][architecture()]
     notify("Downloading and verifying uv / 下載及驗證 uv")
@@ -104,19 +141,19 @@ def _prepare_runtime(notify=lambda message: None):
     notify("Downloading and verifying tunnel-client / 下載及驗證通道程式")
     tunnel_archive = download(target["tunnel"], downloads / "tunnel-client.zip")
     tunnel_dir = RUNTIME / "tunnel-client"
-    tunnel_dir.mkdir(exist_ok=True)
+    private_dir(tunnel_dir)
     extract_file(tunnel_archive, "tunnel-client", tunnel_dir / "tunnel-client")
     notify("Preparing isolated Python and MCP / 準備隔離的 Python 和 MCP")
     venv = RUNTIME / "blender-mcp/.venv"
     python = venv / "bin/python"
     if not python.exists():
-        venv.parent.mkdir(exist_ok=True)
+        private_dir(venv.parent)
         run([str(uv), "venv", "--python", lock["versions"]["python"], str(venv)])
     wheel = download(lock["mcp_wheel"], downloads / "mcp_for_blender-2.1.0-py3-none-any.whl")
     run([str(uv), "pip", "install", "--python", str(python),
          "-r", str(package_file("requirements.lock")), str(wheel)])
     scripts = RUNTIME / "blender-userconfig/scripts/addons"
-    scripts.mkdir(parents=True, exist_ok=True)
+    private_dir(scripts)
     with zipfile.ZipFile(wheel) as z:
         names = [n for n in z.namelist() if n.endswith("blender_mcp/bundled/addon.py")]
         if len(names) != 1:
@@ -125,14 +162,16 @@ def _prepare_runtime(notify=lambda message: None):
     notify("Components ready / 元件已準備好")
     atomic_json(STATE / "components.json",
         {"architecture": architecture(), "versions": lock["versions"],
-         "hash_verification": "PASS"})
+         "hash_verification": "PRIMARY_ARTIFACTS_PASS",
+         "hash_verification_scope": ["uv", "tunnel-client", "mcp-for-blender wheel"],
+         "python_transitive_hashes_verified": False})
     return {"ok": True, "message": "Components ready. Complete Setup / 元件已就緒，請完成設定"}
 
 
 def write_profile():
     validate(CONFIG, require_ready=True)
     directory = RUNTIME / "profiles"
-    directory.mkdir(parents=True, exist_ok=True)
+    private_dir(directory)
     command = shlex.join([str(RUNTIME / "blender-mcp/.venv/bin/python"),
                           str(ROOT / "mcp_entry.py")])
     # JSON is a YAML-compatible document, so quoted paths and IDs stay unambiguous.
