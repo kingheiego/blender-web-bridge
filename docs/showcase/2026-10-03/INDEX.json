@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "project": "DOC-002 Blender Related",
+  "case_date": "2026-10-03",
+  "publication_date": "2026-10-04",
+  "purpose": "Public visual examples, not a new software release or a full acceptance claim.",
+  "media_scope": "Gallery assets only; existing installer ZIP allowlist unchanged.",
+  "media": [
+    {
+      "path": "images/arcade-overview.png",
+      "sha256": "3fd6914ad9f5915aa483279778deed5d60458d65bcece89b219a1f4ab096593e",
+      "bytes": 4067507,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "mime": "image/png",
+      "kind": "actual_blender_render",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/arcade-controls.png",
+      "sha256": "5c93b8c9c541915fb63e422262b383cd52a880fd2de0ec5d6d8b87fb3082dcce",
+      "bytes": 3997858,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "mime": "image/png",
+      "kind": "actual_blender_render",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/arcade-claw-machines.png",
+      "sha256": "b8c1059339af96ab3834ab7a5fa5d554a9637b44250bddd95ff593668228c3c4",
+      "bytes": 4003570,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "mime": "image/png",
+      "kind": "actual_blender_render",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/street-result.png",
+      "sha256": "1e8a0d115584a84630d2f0541a3e2261f8d1cacd5ae8915b99f8a42cab8910cc",
+      "bytes": 4218879,
+      "dimensions": [
+        2048,
+        1365
+      ],
+      "mime": "image/png",
+      "kind": "actual_blender_render",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/street-right.png",
+      "sha256": "ce690d639bbd246bee8d1c2a8a13346f9148496709a2605a4b2a931a4d4eb211",
+      "bytes": 3736443,
+      "dimensions": [
+        2048,
+        1365
+      ],
+      "mime": "image/png",
+      "kind": "actual_blender_render",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/street-left-earlier-light.png",
+      "sha256": "3d9cd57f4902cf918a7a931de5c2276de76072d0d29243650efadbef409d7c29",
+      "bytes": 3791279,
+      "dimensions": [
+        2048,
+        1365
+      ],
+      "mime": "image/png",
+      "kind": "actual_blender_render",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/comparison.png",
+      "sha256": "fd41edfafd925460867918fc9556ba6586efddd105b391274b9cd5d228724d95",
+      "bytes": 1296993,
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "mime": "image/png",
+      "kind": "informational_ai_graphic",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/arcade-web-evidence.jpg",
+      "sha256": "b81e3dce2e09d1f57480f2163439983852c47bb20b6d93c5ec0f70267f4c2426",
+      "bytes": 47806,
+      "dimensions": [
+        570,
+        440
+      ],
+      "mime": "image/jpeg",
+      "kind": "actual_ui_capture",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/arcade-blender-evidence.jpg",
+      "sha256": "7d3e07d5bc76033cc20ba77c598725ebb70867973d522f781da9240d06a69e43",
+      "bytes": 674863,
+      "dimensions": [
+        3024,
+        1738
+      ],
+      "mime": "image/jpeg",
+      "kind": "actual_ui_capture",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies.",
+      "source_sha256": "d804797a339b3e9ae850e8a8c7f1c5ac33cc74615bd72517b2b7aec9dab2ca26",
+      "publication_metadata_removed": [
+        "0xed"
+      ],
+      "decoded_pixels_unchanged": true
+    },
+    {
+      "path": "images/street-web-evidence.jpg",
+      "sha256": "d8034bdfddc486e4081cbce1b0c5e0589f2e57875e30b2a8679de9744645c8c1",
+      "bytes": 95058,
+      "dimensions": [
+        1226,
+        720
+      ],
+      "mime": "image/jpeg",
+      "kind": "actual_ui_capture",
+      "pixels_modified_for_publication": false,
+      "metadata_review": "No private file paths or credentials in selected screenshots; render metadata already removed.",
+      "visual_review": "Assistant inspected source pixels; public bytes match reviewed copies."
+    },
+    {
+      "path": "images/street-reference.jpg",
+      "source_sha256": "a7651a8b8043a3feffa57db7851502206796538216c7e088ab8b30650efda3e2",
+      "sha256": "d16e5f0098246c1f9cab42331f3ed6e42e53f7e20fb37883c5e02e40fd3e849b",
+      "bytes": 1159618,
+      "dimensions": [
+        6240,
+        4160
+      ],
+      "mime": "image/jpeg",
+      "kind": "user_supplied_reference_photo",
+      "removed_metadata_markers": [
+        "0xe1",
+        "0xed",
+        "0xe1"
+      ],
+      "decoded_pixels_sha256": "976e898ab170ef9bb50ffb4b7b18a53e8882c38291b17d15d031019522cb350d",
+      "decoded_pixels_unchanged": true,
+      "publication_authorization": "Owner requested reference images and results on GitHub on 2026-10-04.",
+      "license": "Reference display permission for this case; no general image reuse license granted."
+    }
+  ]
+}
