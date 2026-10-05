@@ -6,11 +6,13 @@ Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure 
 
 **公開測試版 / Public prerelease.** 本版已修正下載暫存硬連結、runtime 目錄連結及舊式憑證檔的安全檢查。完整來源 202 項測試中 200 通過、2 略過，並已完成 Mac 隔離下載、安裝升級／精確還原和新 MCP 環境的本機唯讀驗證。[查看精確驗收範圍](docs/ACCEPTANCE.md)。這不是 OS 沙盒；請只在自己的可信任環境使用，同一 Blender 實例一次只由一個對話改寫。
 
+**發布方式：** 本 repo 提供原始碼，供使用者自行設定私人 MCP 接駁；不是已上架官方插件商店的產品。Secure MCP Tunnel 不支援公開插件提交／分發入口，詳見[官方指南](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels)。
+
 ## 實際案例與圖片
 
 [查看完整圖集：日本遊戲中心、照片參考街景 →](docs/showcase/README.md)
 
-圖集包含參考相片、實際提示詞、六張不同視角的 Blender 渲染及操作證據。沒有參考圖的案例則直接列出提示詞。這批是開發實測展示，不代表所有功能或所有環境已完成驗收。
+圖集包含遊戲廳、照片街景及找回的黃色列車月台；附參考相片、實際提示詞、對話截圖與 Blender 渲染，亦公開人物效果不足的例子。沒有參考圖的案例則直接列出提示詞。這批是開發實測展示，不代表所有功能或所有環境已完成驗收。
 
 ## Deploy with one line / 一句交畀 AI
 
