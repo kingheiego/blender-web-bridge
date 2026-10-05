@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "media": [
+    {
+      "path": "docs/showcase/2026-09-29/images/train-reference.jpg",
+      "kind": "user_supplied_reference",
+      "source_sha256": "eaa3d399c04a373a92dcff5f081540c17c07476d0eb17c10914e58ee21835249",
+      "sha256": "eaa3d399c04a373a92dcff5f081540c17c07476d0eb17c10914e58ee21835249",
+      "bytes": 774362,
+      "dimensions": [
+        1376,
+        768
+      ],
+      "decoded_pixels_unchanged": true,
+      "metadata": "Text metadata removed; no generated retouching",
+      "publication_authorization": "Owner requested original reference, recovered train case and arcade conversation on GitHub, 2026-10-05"
+    },
+    {
+      "path": "docs/showcase/2026-09-29/images/train-scene.png",
+      "kind": "actual_blender_render",
+      "source_sha256": "144b3a5ce6ef42092b36a13a879b213e75a2d4b86f5c6bda933756cf99768b4f",
+      "sha256": "a2602abfdd9482cffbdc767089f07dc8c0add30b77d1cadb1334a11fc9f39a2c",
+      "bytes": 1554491,
+      "dimensions": [
+        1376,
+        768
+      ],
+      "decoded_pixels_unchanged": true,
+      "metadata": "Text metadata removed; no generated retouching",
+      "publication_authorization": "Owner requested original reference, recovered train case and arcade conversation on GitHub, 2026-10-05"
+    },
+    {
+      "path": "docs/showcase/2026-09-29/images/train-character-prototype.png",
+      "kind": "actual_blender_render",
+      "source_sha256": "9f5aa25b38b86eb1dfacfadd3e92bbedf124e61a65e20530197f7053782d234f",
+      "sha256": "b9e74f81eadb955e4840b2768ac901513c85b793744905b5d9eb162beec42ef5",
+      "bytes": 1553235,
+      "dimensions": [
+        1376,
+        768
+      ],
+      "decoded_pixels_unchanged": true,
+      "metadata": "Text metadata removed; no generated retouching",
+      "publication_authorization": "Owner requested original reference, recovered train case and arcade conversation on GitHub, 2026-10-05"
+    },
+    {
+      "path": "docs/showcase/2026-09-29/images/train-original-message.png",
+      "kind": "actual_chat_capture",
+      "source_sha256": "1dbc0922dbeaeb27a646268245bef7b6bf752eb50cea177f5012278fbdfa52c5",
+      "sha256": "1dbc0922dbeaeb27a646268245bef7b6bf752eb50cea177f5012278fbdfa52c5",
+      "bytes": 47125,
+      "dimensions": [
+        785,
+        510
+      ],
+      "decoded_pixels_unchanged": true,
+      "metadata": "Text metadata removed; no generated retouching",
+      "publication_authorization": "Owner requested original reference, recovered train case and arcade conversation on GitHub, 2026-10-05"
+    }
+  ],
+  "scene_verification": [
+    {
+      "file": "Yellow_Train_Platform_20260929_d6fdeaa751_Station.blend",
+      "sha256": "4cb93094b3dbc399a48c8161e2a4b8750b9d91f60302b7e092da0906c0c5a29c",
+      "scene": "Yellow_Train_Platform",
+      "scenes": [
+        {
+          "name": "Scene",
+          "objects": 3,
+          "meshes": 1,
+          "rigs": 0
+        },
+        {
+          "name": "Yellow_Train_Platform",
+          "objects": 4340,
+          "meshes": 3759,
+          "rigs": 0
+        }
+      ],
+      "objects": 4340,
+      "mesh_objects": 3759,
+      "lights": 3,
+      "cameras": 3,
+      "materials_file_total": 46,
+      "dirty": false,
+      "rigs": 0
+    },
+    {
+      "file": "Yellow_Train_Platform_Portrait_20260929_v001.blend",
+      "sha256": "12c4cb7bfe7611132ed803c2fabc9354780c48ab99a01588b62703327296cb56",
+      "scene": "Scene",
+      "scenes": [
+        {
+          "name": "Scene",
+          "objects": 3,
+          "meshes": 1,
+          "rigs": 0
+        },
+        {
+          "name": "Yellow_Train_Platform",
+          "objects": 4340,
+          "meshes": 3759,
+          "rigs": 0
+        }
+      ],
+      "objects": 3,
+      "mesh_objects": 1,
+      "lights": 1,
+      "cameras": 1,
+      "materials_file_total": 62,
+      "dirty": false,
+      "rigs": 0
+    }
+  ]
+}

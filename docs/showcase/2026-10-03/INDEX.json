@@ -171,6 +171,34 @@
       "decoded_pixels_unchanged": true,
       "publication_authorization": "Owner requested reference images and results on GitHub on 2026-10-04.",
       "license": "Reference display permission for this case; no general image reuse license granted."
+    },
+    {
+      "path": "images/arcade-initial-message-excerpt.png",
+      "kind": "actual_chat_capture_excerpt",
+      "source_sha256": "f693de3bec9bdd995e296eef23fd53ad485a6ee11056768d9b203ede76ea2b8f",
+      "sha256": "f693de3bec9bdd995e296eef23fd53ad485a6ee11056768d9b203ede76ea2b8f",
+      "bytes": 25468,
+      "dimensions": [
+        265,
+        300
+      ],
+      "decoded_pixels_unchanged": true,
+      "metadata": "Text metadata removed; no generated retouching",
+      "publication_authorization": "Owner requested original reference, recovered train case and arcade conversation on GitHub, 2026-10-05"
+    },
+    {
+      "path": "images/arcade-pro-message.png",
+      "kind": "actual_chat_capture",
+      "source_sha256": "2de238cf5e231c30199b3177b1b3bed40f351ebd9cb15bc0865ee5fca7a604c2",
+      "sha256": "2de238cf5e231c30199b3177b1b3bed40f351ebd9cb15bc0865ee5fca7a604c2",
+      "bytes": 38399,
+      "dimensions": [
+        403,
+        557
+      ],
+      "decoded_pixels_unchanged": true,
+      "metadata": "Text metadata removed; no generated retouching",
+      "publication_authorization": "Owner requested original reference, recovered train case and arcade conversation on GitHub, 2026-10-05"
     }
   ]
 }
