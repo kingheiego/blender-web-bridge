@@ -1,5 +1,12 @@
 # Changelog / 變更紀錄
 
+## 2.0.2-rc3 · 2026-10-09
+
+- OpenAI `tunnel-client` 固定至 0.0.16，`uv` 固定至 0.12.24；MacBook（macOS）下載檔按官方 SHA-256 驗證。
+- 下載快取改用版本及架構命名，升級時不會誤把舊版 `uv.tar.gz` 或 `tunnel-client.zip` 當成新版。
+- 保留手動開關 Blender、MacBook 專用範圍和既有通道身份；相容及現用連線結果以本版驗收紀錄為準。
+- Mac 已實測 0.0.16 通道：關閉 Blender 不自動重開，手動重開後同一條 ChatGPT 連線真實讀到場景；測試後將 Blender 留在關閉狀態。
+
 ## 2.0.2-rc2 · 2026-10-09
 
 - 面板視窗、頁首和 macOS App 顯示名稱改為完整中英文：`Blender Web Bridge / Blender 網頁橋接器`；測試畫面名稱亦不再使用 `BWB／UI／QA` 簡寫。維持既有 bundle 路徑及通道身份，避免令舊版升級失效。

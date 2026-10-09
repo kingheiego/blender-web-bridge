@@ -1,4 +1,4 @@
-# Blender Web Bridge / Blender 網頁橋接器 · 2.0.2-rc2
+# Blender Web Bridge / Blender 網頁橋接器 · 2.0.2-rc3
 
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
@@ -17,6 +17,10 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 **Public prerelease; the manual Blender lifecycle passed on one Mac. / 公開測試版；手動開關與連線已於一部 Mac 實測。** See [acceptance](docs/ACCEPTANCE.md) for exact limits.
 
 **Supported platform / 支援平台：MacBook（macOS）only / 只支援 MacBook。** Windows is not provided or tested by this project; anyone using Windows must port the source and verify it themselves. / 本 Project 不提供或驗收 Windows 版本，Windows 使用者須自行移植及測試。
+
+This release pins OpenAI `tunnel-client` 0.0.16, Astral `uv` 0.12.24 and
+`mcp-for-blender` 2.1.9, with verified download hashes. / 本版固定上述三個
+版本並核對下載雜湊；準備元件不會在背景偷偷追逐上游新版。
 
 A per-user macOS desktop controller for your existing private Blender tunnel.
 One-click Connect and Stop, conservative four-layer status, and transactional updates.

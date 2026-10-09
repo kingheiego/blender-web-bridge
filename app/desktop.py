@@ -19,7 +19,7 @@ import keychain_store
 import settings
 from safeio import FileLock, atomic_json, checked_path
 
-VERSION = '2.0.2-rc2'
+VERSION = '2.0.2-rc3'
 DISPLAY_NAME = 'Blender Web Bridge / Blender 網頁橋接器'
 
 

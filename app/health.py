@@ -2,7 +2,7 @@
 """Conservative, read-only cloud observations; never starts or restarts services.
 
 Contract: local readyz is not a cloud or web acceptance test. Error counters are
-partitioned by error_kind in tunnel-client v0.0.15. A counter pair cannot order
+partitioned by error_kind in tunnel-client. A counter pair cannot order
 success and failure within one scrape; that case remains unknown until a later
 unambiguous success. No raw logs, URLs, account IDs or error messages escape here.
 """

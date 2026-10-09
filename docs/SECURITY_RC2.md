@@ -41,8 +41,8 @@ files. The installer does not provide a filesystem sandbox for Blender tools.
 Scene-preservation instructions are model guidance, not enforcement of all model
 code. Inspect every model-changing action and do not automatically retry it.
 
-MIT applies to the controller. Pinned components are OpenAI tunnel-client 0.0.15,
-uv 0.10.0, MCP for Blender 2.1.9 and its Python
+MIT applies to the controller. Pinned components are OpenAI tunnel-client 0.0.16,
+uv 0.12.24, MCP for Blender 2.1.9 and its Python
 dependencies. Binaries are not bundled. The Python transitive requirement versions
 are pinned, but this work does not add a complete per-wheel hash lock; runtime
 supply-chain verification beyond existing primary artifact hashes remains a gap.

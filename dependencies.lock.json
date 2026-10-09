@@ -1,30 +1,30 @@
 {
   "schema": 1,
   "versions": {
-    "uv": "0.10.0",
-    "tunnel_client": "0.0.15",
+    "uv": "0.12.24",
+    "tunnel_client": "0.0.16",
     "mcp_for_blender": "2.1.9",
     "python": "3.11"
   },
   "artifacts": {
     "arm64": {
       "uv": {
-        "url": "https://github.com/astral-sh/uv/releases/download/0.10.0/uv-aarch64-apple-darwin.tar.gz",
-        "sha256": "82d4b99dc6ea686695b5ee142ceba03dd3e3eda2b414e94215ab7bce94972fbb"
+        "url": "https://github.com/astral-sh/uv/releases/download/0.12.24/uv-aarch64-apple-darwin.tar.gz",
+        "sha256": "0c4346de7abdb49495b393b9ec809fe387aa43e586be20fecb972216c1e71732"
       },
       "tunnel": {
-        "url": "https://github.com/openai/tunnel-client/releases/download/v0.0.15/tunnel-client-v0.0.15-darwin-arm64.zip",
-        "sha256": "b2cae3aa9df45b4c2fe9b1d700ebacce39f9feb6a6b46b86e6499f9a51bf72ff"
+        "url": "https://github.com/openai/tunnel-client/releases/download/v0.0.16/tunnel-client-v0.0.16-darwin-arm64.zip",
+        "sha256": "a160820d45089b5253d8d671fe2a689bde0f73d78c135d1497a7b33f28a3ac62"
       }
     },
     "x86_64": {
       "uv": {
-        "url": "https://github.com/astral-sh/uv/releases/download/0.10.0/uv-x86_64-apple-darwin.tar.gz",
-        "sha256": "664aed584c276f8d79cdc3b7685cd48f5d64657bd6840b06b4b2b0db731b9c99"
+        "url": "https://github.com/astral-sh/uv/releases/download/0.12.24/uv-x86_64-apple-darwin.tar.gz",
+        "sha256": "4fa82e37cb94767661f532b001e470b67a186c7260e305bd84ddb78fd545c0b6"
       },
       "tunnel": {
-        "url": "https://github.com/openai/tunnel-client/releases/download/v0.0.15/tunnel-client-v0.0.15-darwin-amd64.zip",
-        "sha256": "9dcae1e2fb121287e73271edb7b853dda52aa86b7bfca1df91bc275371261bdb"
+        "url": "https://github.com/openai/tunnel-client/releases/download/v0.0.16/tunnel-client-v0.0.16-darwin-amd64.zip",
+        "sha256": "57b3dd73f2d042c7aeb5664681f7538078359f55538b9e048640f1df71a0c83f"
       }
     }
   },

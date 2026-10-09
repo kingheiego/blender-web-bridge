@@ -12,9 +12,12 @@ Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.
 ```
 
-本版是 **2.0.2-rc2 程式候選版**；面板及 App 的可見名稱均使用完整中英文。本頁歷史驗收紀錄屬舊版本，實機驗收另以本次部署結果為準。
+本版是 **2.0.2-rc3 程式候選版**；面板及 App 的可見名稱均使用完整中英文。本頁歷史驗收紀錄屬舊版本，實機驗收另以本次部署結果為準。
 
 **支援範圍：只提供俾 MacBook（macOS）使用。** Windows 沒有產品支援或功能驗收；如要在 Windows 使用，請自行移植原始碼並在 Windows 實機驗證。
+
+本版固定 `tunnel-client` 0.0.16、`uv` 0.12.24、`mcp-for-blender` 2.1.9；
+下載網址和 SHA-256 在 `dependencies.lock.json`。版本會由明確更新流程處理，不會在背景自動追新。
 
 解壓後先看 [首次設定圖解](SETUP_RC2.html)，再雙擊 `Install.command`。需要自行安裝 Blender、
 Python 3.10 或以上及 Tk，建議 3.11 或以上；MCP 另用固定 Python 3.11 環境。
