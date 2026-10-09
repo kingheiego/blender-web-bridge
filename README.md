@@ -6,6 +6,8 @@ Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure 
 
 The desktop window and macOS app display the full English and Traditional Chinese name: **Blender Web Bridge / Blender 網頁橋接器**. The existing `Blender Web Bridge.app` bundle filename stays unchanged so upgrades and rollback still find the same app.
 
+**Supported platform / 支援平台：MacBook（macOS）only / 只提供俾 MacBook 使用。** The installer and controller are built for MacBook. Windows is outside this project's support and testing scope; Windows users must adapt the source and verify it themselves. / Windows 不屬本 Project 的支援或驗收範圍；如要在 Windows 使用，須自行移植及測試。
+
 **公開測試版 / Public prerelease.** 本版改為由使用者自行開啟 Blender，關閉後不再由背景服務重開。Prepare components 會備份日常 Blender 偏好、安裝並啟用固定版本 MCP 插件。Mac 已實測關閉、手動重開及 ChatGPT 工具重連；完整驗收範圍見 [Validation](VALIDATION.md)。這不是 OS 沙盒；請只在自己的可信任環境使用，同一 Blender 實例一次只由一個對話改寫。
 
 **發布方式：** 本 repo 提供原始碼，供使用者自行設定私人 MCP 接駁；不是已上架官方插件商店的產品。Secure MCP Tunnel 不支援公開插件提交／分發入口，詳見[官方指南](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels)。

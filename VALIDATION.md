@@ -5,13 +5,13 @@
 | 項目 | 2.0.2-rc2 結果 |
 | --- | --- |
 | 來源測試 | Python 3.10：207 項，205 通過、2 項實體跨檔案系統測試略過。 |
+| 支援平台 | 產品只提供俾 MacBook（macOS）使用。Windows 未納入產品支援與驗收；Windows 使用者須自行移植及測試。 |
 | 中英可見名稱 | 合成資料的 macOS 面板畫面已實際檢查：完整中英視窗標題與頁首可見、沒有裁切。實際 App bundle metadata 讀回同名；公開來源 ZIP 的全新安裝、由 rc1 升級及精確 rollback 已通過，設定檔雜湊不變。 |
 | 固定版本 | `mcp-for-blender` 2.1.9；wheel SHA-256 `a5cbc6cf316fa7433566eb505a0c26ca22e28c10083bd1b09a23d9e357821ccc`；插件 1.8／協定 13。 |
 | 首次／舊版插件準備 | Mac 隔離設定實測從空白及插件 1.7 兩種狀態安裝；新版插件啟用、偏好保存和版本化備份均通過。 |
 | 舊自動重開服務遷移 | 只接受已核實身份的舊 LaunchAgent；單元測試涵蓋備份停用、外來服務拒絕、通道仍運行拒絕及人手確認。Mac 現用舊服務已在保存場景副本後卸載。 |
 | 公開 repo 安裝 | 實際公開來源 checkout 在隔離目錄完成全新安裝、由 2.0.1-rc3 升級及精確 rollback；設定檔雜湊不變，新增 helper 確實進入新安裝而舊啟動器不再打包。 |
 | Mac 現用環境 | 日常 Blender 5.2.2 LTS 保留另外三個插件和兩個素材庫；ChatGPT 連接器實際讀到插件協定 13 與場景。關閉 Blender 後程序和 socket 停止，舊 LaunchAgent 不再重開它；手動重開後同一條通道再次讀到場景。 |
-| Windows | 同版插件已裝入已驗證的 Blender 5.2 設定；背景載入與偏好 readback 通過，另外三個插件及兩個素材庫仍在。GUI socket／ChatGPT 通道未在 Windows 實測。 |
 | 發佈包 | 私隱與素材 allowlist 檢查通過；`Install.command --check` 通過。 |
 
 新版將原有多個 MCP 工具整合；升級後需在 ChatGPT 連接器刷新工具，舊對話可能保留舊清單。此驗收不涵蓋 Intel Mac、重開整機、所有帳戶／地區或長時間 soak。
