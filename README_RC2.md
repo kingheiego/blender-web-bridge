@@ -1,4 +1,4 @@
-# Blender Web Bridge · 2.0.1-rc3
+# Blender Web Bridge · 2.0.2-rc1
 
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
@@ -14,12 +14,12 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 
 **Start here / 由這裡開始：** [English getting started](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/GETTING_STARTED.md) · [繁體中文入門](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/GETTING_STARTED.zh-Hant.md) · [All links / 所有連結](https://github.com/kingheiego/blender-web-bridge/blob/main/docs/LINKS.md).
 
-**Review candidate, not a hardware-accepted release. / 審核候選版，尚未完成實機驗收。**
+**Public prerelease; the manual Blender lifecycle passed on one Mac. / 公開測試版；手動開關與連線已於一部 Mac 實測。** See [acceptance](docs/ACCEPTANCE.md) for exact limits.
 
 A per-user macOS desktop controller for your existing private Blender tunnel.
 One-click Connect and Stop, conservative four-layer status, and transactional updates.
 用一個 macOS 視窗管理自己的 Blender 私人通道：一鍵連接／停止、四層狀態，以及可還原更新。
-The full setup is not one-click or fully hands-off. HUMAN ONLY: confirm ChatGPT eligibility, developer mode, Platform tunnel permission and workspace association; create your connector app, Tunnel and key; enter the key in the masked app field; approve ChatGPT/macOS prompts; refresh tools and select the connector in a new conversation. If Blender is unresponsive, you decide whether to press Connect: it may start managed Blender. / 完整設定並非一鍵全自動；帳戶資格、通道權限、App、金鑰輸入、批准、刷新工具及必要時啟動 Blender 的決定由本人處理。
+The full setup is not one-click or fully hands-off. HUMAN ONLY: confirm ChatGPT eligibility, developer mode, Platform tunnel permission and workspace association; create your connector app, Tunnel and key; enter the key in the masked app field; approve ChatGPT/macOS prompts; refresh tools and select the connector in a new conversation. Open Blender yourself before pressing Connect; Connect never launches Blender. / 完整設定並非一鍵全自動；帳戶資格、通道權限、App、金鑰輸入、批准、刷新工具及選擇連接器由本人處理。先自行開啟 Blender，再按 Connect；Connect 不會啟動 Blender。
 
 ## Start / 開始
 
@@ -33,17 +33,31 @@ supported region. This source package is not notarized or self-contained.
 
 Read [Setup / 首次設定](docs/SETUP_RC2.html), then double-click `Install.command`.
 Installation changes files only; it starts no services. For an update, quit the panel
-and stop only the tunnel first. Keep your Blender and its unsaved work open.
-先看圖解，再雙擊安裝；安裝器不啟動服務。更新前須關閉面板及停止通道，Blender 可保持開啟。
+and stop the tunnel first; the installer leaves Blender open. Save and close Blender
+before the separate Prepare components step.
+先看圖解，再雙擊安裝；安裝器不啟動服務。更新安裝器前須關閉面板及停止通道，
+Blender 可保持開啟；執行「準備元件」前則須先儲存並關閉 Blender。
 
 Open the desktop app and complete Setup. Existing identities stay unchanged.
-First-time **Prepare components** requires both dedicated services to be inactive;
-it never stops either service. Do not use it to update a running Blender.
-打開桌面 App 並完成設定；既有身份不變。首次「準備元件」要求兩個專用服務未運行，
-不會代你停止服務，亦不能用來更新使用中的 Blender。
+Save and close Blender and stop the tunnel before **Prepare components**. It
+downloads the pinned runtime, backs up the regular Blender add-on and
+preferences, then installs and enables the add-on there. It does not stop a
+running Blender or tunnel for you. Auto-Start Server makes the local socket
+available when you open Blender; closing Blender leaves it closed.
+打開桌面 App 並完成設定；既有身份不變。「準備元件」前先儲存並關閉 Blender，
+再停止通道。此步會下載固定版本、備份日常 Blender 的插件及偏好，然後安裝
+並啟用插件；不會代你停止正在運行的 Blender 或通道。往後自行開 Blender
+會啟動本機 socket，關閉 Blender 後不會自動重開。
 
-Check Blender first. Press Connect only if it responds to a read-only query;
-otherwise the owner decides whether to press it. Inspect all four layers, then use your selected app in ChatGPT for
+If an older install keeps reopening Blender, save its scene and Stop the tunnel.
+On Setup, use **Disable old Blender auto-restart** once and confirm. It archives
+only the recognized legacy service and closes its managed Blender; then use
+Prepare components. / 若舊版仍會重開 Blender，先儲存場景、停止通道，在設定頁
+按「停用舊版 Blender 自動重開」並確認；它只備份及停止已核實的舊服務，之後
+才執行「準備元件」。
+
+Open Blender first and let its MCP add-on start the local socket. Then press Connect.
+Closing Blender closes the socket without reopening Blender. Inspect all four layers, then use your selected app in ChatGPT for
 two read-only scene queries. Record the actual result in the Web acceptance tab.
 按連接後檢查四層狀態，再於 ChatGPT 選擇自己的 App，執行兩次唯讀場景查詢並記錄結果。
 
@@ -92,4 +106,4 @@ No runtime binary or credentials are distributed. / 控制程式為 MIT；不附
 
 Author / 作者: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
-本版新增路徑安全修正。完整來源測試 202 項（200 通過、2 略過），並完成 Mac 隔離元件準備、安裝／升級／精確還原及本機 MCP 唯讀驗證。範圍與未測項目見[驗收狀態](docs/ACCEPTANCE.md)。固定檔名中的 RC2 保留以相容現有安裝器。
+本版改為手動開關日常 Blender，固定 MCP 2.1.9。完整來源測試 207 項（205 通過、2 項既有略過）；Mac 已做真實 ChatGPT 工具查詢及關閉／重開驗證，公開來源已做全新安裝、升級與 rollback 測試。範圍與未測項目見[驗收狀態](docs/ACCEPTANCE.md)。固定檔名中的 RC2 保留以相容現有安裝器。

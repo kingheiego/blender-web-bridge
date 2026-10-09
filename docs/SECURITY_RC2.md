@@ -41,11 +41,17 @@ files. The installer does not provide a filesystem sandbox for Blender tools.
 Scene-preservation instructions are model guidance, not enforcement of all model
 code. Inspect every model-changing action and do not automatically retry it.
 
-MIT applies to the controller. Existing dependency versions and licenses remain
-unchanged: OpenAI tunnel-client 0.0.15, uv 0.10.0, MCP for Blender 2.1.0 and its Python
+MIT applies to the controller. Pinned components are OpenAI tunnel-client 0.0.15,
+uv 0.10.0, MCP for Blender 2.1.9 and its Python
 dependencies. Binaries are not bundled. The Python transitive requirement versions
 are pinned, but this work does not add a complete per-wheel hash lock; runtime
 supply-chain verification beyond existing primary artifact hashes remains a gap.
+
+The current setup enables MCP in the regular Blender profile. Once you open
+Blender, a connected ChatGPT app can access that open scene. Closing Blender
+stops the local socket; Stop in the controller disconnects the tunnel. The
+previous isolated Blender LaunchAgent must be unloaded during migration, or it
+can continue restarting its own instance and competing for the socket.
 
 ---
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)

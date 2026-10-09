@@ -20,7 +20,7 @@ import uuid
 from settings import ROOT, CONFIG, STATE, RUNTIME, CONFIG_PATH, DATA, validate
 from keychain_store import load_credential
 from bootstrap import write_profile
-from safeio import FileLock, atomic_bytes, atomic_json, checked_path, private_dir
+from safeio import FileLock, atomic_bytes, atomic_json, checked_path, private_dir, read_regular_bytes
 from health import (OBSERVER, FRESH_WINDOW_SECONDS, MAX_METRICS_BYTES, inspect_cloud,
                     local_get, local_url, result as cloud_result)
 
@@ -29,6 +29,7 @@ DOMAIN = f'gui/{os.getuid()}'
 PLIST = pathlib.Path.home() / 'Library/LaunchAgents' / (LABEL + '.plist')
 HEALTH = STATE / 'health-url.txt'
 LOG = STATE / 'tunnel.log'
+LEGACY_BLENDER_PLIST = pathlib.Path.home() / 'Library/LaunchAgents' / (CONFIG['blender_label'] + '.plist')
 PYTHON = sys.executable
 WEB_TTL_SECONDS = 300
 # Acceptance is deliberately limited to this observing controller session.
@@ -272,27 +273,63 @@ def install_service():
     atomic_bytes(PLIST, plistlib.dumps(expected))
 
 
-def install_blender_service():
-    path = checked_path(pathlib.Path.home() / 'Library/LaunchAgents' / (CONFIG['blender_label'] + '.plist'))
-    executable = pathlib.Path(CONFIG['blender_app']) / 'Contents/MacOS/Blender'
-    if path.exists():
-        previous = plistlib.loads(path.read_bytes())
-        args = previous.get('ProgramArguments')
-        if previous.get('Label') != CONFIG['blender_label'] or not isinstance(args, list) or not args or args[0] != str(executable):
-            raise RuntimeError('Existing Blender service identity differs / 現有 Blender 服務身份不同')
-        return
-    if not executable.is_file():
-        raise RuntimeError('Blender.app not found / 找不到 Blender.app')
-    isolated = RUNTIME / 'blender-userconfig'
-    private_dir(isolated / 'config')
-    value = {'Label': CONFIG['blender_label'],
-             'ProgramArguments': [str(executable), '--factory-startup', '--python', str(ROOT / 'start_blender.py')],
-             'EnvironmentVariables': {'BLENDER_USER_CONFIG': str(isolated / 'config'),
-                 'BLENDER_USER_SCRIPTS': str(isolated / 'scripts'), 'BWB_CONFIG_PATH': str(CONFIG_PATH),
-                 'BLENDER_MCP_SAFE_MODE': '1', 'DISABLE_TELEMETRY': 'true'},
-             'RunAtLoad': True, 'KeepAlive': {'SuccessfulExit': False}, 'ThrottleInterval': 60,
-             'StandardOutPath': str(STATE / 'blender.log'), 'StandardErrorPath': str(STATE / 'blender.log')}
-    atomic_bytes(path, plistlib.dumps(value))
+def retire_legacy_blender_service():
+    """Archive the owned auto-restart job after the owner saves their scene."""
+    with FileLock(STATE / 'control.lock'):
+        assert_install_complete()
+        if require_service_known(LABEL)['loaded']:
+            return {'ok': False, 'message': 'Stop the tunnel first / 請先停止通道'}
+        label = CONFIG['blender_label']
+        current = require_service_known(label)
+        path = checked_path(LEGACY_BLENDER_PLIST)
+        if not path.exists():
+            return ({'ok': False, 'message': 'Loaded Blender service has no backupable file / Blender 服務缺少可備份設定'}
+                    if current['loaded'] else
+                    {'ok': True, 'message': 'Old auto-restart already disabled / 舊版自動重開已停用'})
+        if not path.is_file():
+            return {'ok': False, 'message': 'Blender service file is not a regular file / Blender 服務設定檔無效'}
+        raw = read_regular_bytes(path, max_bytes=65536)
+        try:
+            job = plistlib.loads(raw)
+        except (ValueError, TypeError, plistlib.InvalidFileException):
+            return {'ok': False, 'message': 'Blender service file could not be verified / 無法核對 Blender 服務設定'}
+        args = job.get('ProgramArguments')
+        environment = job.get('EnvironmentVariables')
+        config = environment.get('BLENDER_USER_CONFIG') if isinstance(environment, dict) else None
+        executable = str(pathlib.Path(CONFIG['blender_app']) / 'Contents/MacOS/Blender')
+        owned = (job.get('Label') == label and isinstance(args, list) and len(args) == 4
+                 and args[:3] == [executable, '--factory-startup', '--python']
+                 and isinstance(args[3], str)
+                 and pathlib.Path(args[3]).name in ('start_blender.py', 'start_server.py')
+                 and isinstance(config, str) and pathlib.Path(config).is_relative_to(RUNTIME)
+                 and job.get('RunAtLoad') is True
+                 and job.get('KeepAlive') in (True, {'SuccessfulExit': False}))
+        if not owned:
+            return {'ok': False, 'message': 'Blender service is not the known legacy job; preserved / 並非已核實的舊版 Blender 服務，已保留'}
+        backup = checked_path(STATE / 'backups' / ('legacy-blender-' + uuid.uuid4().hex))
+        private_dir(backup)
+        atomic_bytes(backup / path.name, raw, 0o600)
+        if current['loaded']:
+            try:
+                result = command(['launchctl', 'bootout', f'{DOMAIN}/{label}'], timeout=20)
+            except (OSError, subprocess.SubprocessError):
+                return {'ok': False, 'message': 'Could not stop old Blender; backup preserved / 未能停止舊版 Blender，備份已保留'}
+            if result.returncode:
+                return {'ok': False, 'message': 'Old Blender stop is unconfirmed / 舊版 Blender 停止未獲確認'}
+            deadline = time.monotonic() + 20
+            while time.monotonic() < deadline:
+                state = require_service_known(label)
+                if not state['loaded']:
+                    break
+                time.sleep(0.2)
+            else:
+                return {'ok': False, 'message': 'Old Blender stop is unconfirmed / 舊版 Blender 停止未獲確認'}
+        destination = backup / (path.name + '.disabled')
+        try:
+            path.rename(destination)
+        except OSError:
+            return {'ok': False, 'message': 'Old service may restart at next login; backup preserved / 舊服務下次登入可能重開，備份已保留'}
+        return {'ok': True, 'message': 'Old Blender auto-restart disabled; open Blender yourself / 已停用舊版自動重開；往後自行開 Blender'}
 
 
 def connect():
@@ -302,30 +339,15 @@ def connect():
         if not CONFIG.get('credential_configured'):
             return {'ok': False, 'message': 'Complete Setup / 請先完成設定'}
         current = require_service_known(LABEL)
-        if current['loaded'] and current['pid']:
-            return {'ok': True, 'message': 'Already running; no restart or operation replay / 通道已運行，不重啟或重播操作'}
         if not (RUNTIME / 'blender-mcp/.venv/bin/python').exists():
             return {'ok': False, 'message': 'Prepare components first / 請先準備元件'}
         blender = blender_status()
         if not blender['ok']:
             if blender.get('busy'):
                 return {'ok': False, 'message': 'Blender response uncertain; preserved / Blender 回應不明，保持原狀'}
-            bs = require_service_known(CONFIG['blender_label'])
-            if bs['loaded']:
-                return {'ok': False, 'message': 'Existing Blender service retained; check it locally / 保留現有 Blender 服務，請在本機檢查'}
-            install_blender_service()
-            bp = pathlib.Path.home() / 'Library/LaunchAgents' / (CONFIG['blender_label'] + '.plist')
-            if command(['launchctl', 'bootstrap', DOMAIN, str(bp)]).returncode:
-                return {'ok': False, 'message': 'Blender start not confirmed / 未能確認 Blender 啟動'}
-            # Only this newly requested start is waited for. No launch/model RPC
-            # is repeated and an already loaded Blender was rejected above.
-            deadline = time.monotonic() + 25
-            while time.monotonic() < deadline:
-                if blender_status()['ok']:
-                    break
-                time.sleep(0.5)
-            else:
-                return {'ok': False, 'message': 'Blender start pending; no restart requested / Blender 尚未完成啟動，不會再次重啟'}
+            return {'ok': False, 'message': 'Open Blender first; MCP starts with Blender / 請先自行開啟 Blender；MCP 會隨 Blender 啟動'}
+        if current['loaded'] and current['pid']:
+            return {'ok': True, 'message': 'Already running; no restart or operation replay / 通道已運行，不重啟或重播操作'}
         write_profile()  # Existing profile is validated and reused byte-for-byte.
         if not current['loaded']:
             install_service()
@@ -411,9 +433,10 @@ def main(argv=None):
     action = args[0] if args else 'status'
     if action == 'daemon':
         return daemon()
-    functions = {'status': snapshot, 'connect': connect, 'disconnect': disconnect}
+    functions = {'status': snapshot, 'connect': connect, 'disconnect': disconnect,
+                 'retire-legacy-blender': retire_legacy_blender_service}
     if action not in functions:
-        print('Usage: bridge.py status|connect|disconnect|daemon', file=sys.stderr)
+        print('Usage: bridge.py status|connect|disconnect|retire-legacy-blender|daemon', file=sys.stderr)
         return 2
     try:
         response = functions[action]()

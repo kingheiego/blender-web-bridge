@@ -13,8 +13,8 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 | What the agent does | What only you do |
 |---|---|
 | Check Mac, Blender, Python/Tk and loopback port; install controller; report exact writes. | Confirm a ChatGPT plan/workspace/region with Secure MCP Tunnel and custom connectors, developer-mode access, Platform tunnel permission, and workspace association; ask your admin for access grants. |
-| Guide Setup and prepare pinned components while services are stopped. | Create your own connector app, Tunnel and runtime key in OpenAI/ChatGPT UI. |
-| Check Blender, tunnel process and cloud poll separately; verify a real read-only web tool call. | Enter the key in the app's masked Keychain field; if Blender is unresponsive, decide whether to press Connect (it may start managed Blender); click Refresh tools; open a NEW conversation; approve ChatGPT and macOS prompts. |
+| Guide Setup; save and close Blender, stop the tunnel, then prepare pinned components and the regular Blender add-on. | Create your own connector app, Tunnel and runtime key in OpenAI/ChatGPT UI. |
+| Check Blender, tunnel process and cloud poll separately; verify a real read-only web tool call. | Enter the key in the app's masked Keychain field; open Blender yourself before Connect; click Refresh tools; open a NEW conversation; approve ChatGPT and macOS prompts. |
 
 The 30-second test is a prompt, not a guaranteed duration. Send after a real read-only scene result:
 
@@ -22,7 +22,7 @@ The 30-second test is a prompt, not a guaranteed duration. Send after a real rea
 
 > Run the simplest test: make a simple cat out of a cube, then save it for me.
 
-Recovery: check Blender first, then press `Connect / 一鍵連接`. If Blender is unresponsive, only you decide whether to press it; Connect may start managed Blender.
+Recovery: open Blender yourself, check its MCP add-on, then press `Connect / 一鍵連接`. Connect never starts Blender.
 In ChatGPT connector settings, click `Refresh tools`.
 Start a NEW conversation; see [connection recovery](CONNECTION_RECOVERY.md).
 

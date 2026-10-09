@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+config.json
+runtime/
+state/
+private/
+dist/
+*.blend
+*.blend1
+*.mov
+*.mp4
+*.log

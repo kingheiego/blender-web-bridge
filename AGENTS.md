@@ -14,9 +14,10 @@ The public one-line handoff is: “On my Mac, clone https://github.com/kingheieg
 1. Clone `https://github.com/kingheiego/blender-web-bridge.git` into a new directory, or use this checkout; never overwrite another checkout.
 2. Run `./Install.command --check`. Before installing, inspect `install.py` and report exact target paths, existing targets, and backup/journal behavior. Run `./Install.command`, or `python3 install.py --source "$PWD" --data "$HOME/Library/Application Support/BlenderWebBridge" --desktop "$HOME/Desktop"` with a Python/Tk-capable interpreter. Report actual writes: support `app/`, Desktop `Blender Web Bridge.app`, state receipt, journal/locks, and any staging or backups. Installation starts no service.
 3. Tell the user to open the installed Desktop app. Do not start or stop Blender yourself.
-4. On `Setup / 設定`, use `Prepare components / 準備元件` only when both managed services are stopped and the Blender port is inactive. The app refuses active or uncertain state; report that result and do not stop a service to bypass it. Do not bypass a download hash mismatch.
-5. Have the user fill `Blender.app`, `Tunnel ID / 通道 ID`, `Tool display name / 工具顯示名稱`, `Output folder / 輸出資料夾`, and the masked `Existing runtime key / 已有通道金鑰`; then use `Save setup / 儲存設定`. On `Status / 狀態`, press `Check / 檢查`. Press `Connect / 一鍵連接` only if Blender already gives a read-only response. If not, tell the user to press Connect themselves: current code may start managed Blender when its port is unavailable (`app/bridge.py:308-327`). Recheck and report separately: (1) Blender read-only query, (2) tunnel process/`/readyz`, (3) fresh cloud poll. A healthy process does not prove the cloud or web tool works.
-6. In a new ChatGPT conversation after the user refreshes tools, request a real read-only `get_scene_info` result. Only after that, use the 30-second test sentence in [agent quickstart](docs/AGENT_QUICKSTART.md) in a separate new scene; confirm an actual tool call, model, and saved file while preserving existing work. The public export has no `tests/`; the suite lives in the private source. Do not claim historical tests ran here.
+4. Have the user fill the configured `Blender.app` path, `Tunnel ID / 通道 ID`, `Tool display name / 工具顯示名稱`, `Output folder / 輸出資料夾`, and masked `Existing runtime key / 已有通道金鑰`; then use `Save setup / 儲存設定`. The Blender path must be correct before preparing components.
+5. Save and close Blender, stop the tunnel, then use `Prepare components / 準備元件` in Setup. For an older install that keeps reopening Blender, the user must first save the scene, stop the tunnel, and confirm Setup's **Disable old Blender auto-restart** action; it archives only a recognized legacy service. Prepare components installs the pinned runtime and enables the add-on in the regular Blender profile, preserving a versioned backup of the existing add-on and preferences. The app refuses an active or uncertain Blender/service state; do not bypass that guard or a download hash mismatch.
+6. Ask the user to open Blender. On `Status / 狀態`, press `Check / 檢查`, then `Connect / 一鍵連接` only after Blender gives a read-only response. Connect never starts Blender. Recheck separately: (1) Blender read-only query, (2) tunnel process/`/readyz`, (3) fresh cloud poll. A healthy process does not prove the cloud or web tool works.
+7. In a new ChatGPT conversation after the user refreshes tools, request a real read-only `get_scene_info` result. Only after that, use the 30-second test sentence in [agent quickstart](docs/AGENT_QUICKSTART.md) in a separate new scene; confirm an actual tool call, model, and saved file while preserving existing work. The public checkout contains only selected tests; the complete suite lives in the project source. Do not claim historical tests ran here.
 
 ## NEVER
 - Do not stop or restart Blender; do not clear, replace, or edit the user's existing scene or discard unsaved work.
@@ -28,12 +29,12 @@ The public one-line handoff is: “On my Mac, clone https://github.com/kingheieg
 - Confirm an eligible ChatGPT plan/workspace/region, developer-mode access, Platform tunnel permissions, and workspace association using the [official tunnel guide](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels); the relevant admin handles access grants.
 - Create your own connector app, Tunnel, and runtime key in the OpenAI/ChatGPT UI.
 - Enter the runtime key yourself into the app's masked Keychain field.
-- If Blender is not responsive, decide whether to press `Connect / 一鍵連接` yourself; it may start managed Blender.
+- Open and close Blender yourself. `Connect / 一鍵連接` starts only the tunnel after Blender responds.
 - Click `Refresh tools` in the connector settings, select the connector in a NEW conversation, and approve ChatGPT consent prompts.
 - Approve macOS prompts, including unidentified developer/right-click Open and Keychain access.
 
 ## Recovery
-1. Check Blender. Press `Connect / 一鍵連接` only when a read-only Blender response is already available; otherwise leave the decision to the user because it may start managed Blender.
+1. Ask the user to open Blender and wait for its MCP add-on to respond. Press `Connect / 一鍵連接` only after a read-only Blender response is available.
 2. In the connector settings, have the user press `Refresh tools`.
 3. Have the user select the connector in a NEW conversation and confirm a real read-only tool reply; see [connection recovery](docs/CONNECTION_RECOVERY.md).
 

@@ -19,7 +19,7 @@ import keychain_store
 import settings
 from safeio import FileLock, atomic_json, checked_path
 
-VERSION = '2.0.1-rc3'
+VERSION = '2.0.2-rc1'
 
 
 def public_status(snapshot):
@@ -94,10 +94,10 @@ class App:
         ttk.Button(controls, text='Check / 檢查', command=self.poll).pack(side='left', padx=8)
         ttk.Button(controls, text='Guide / 圖解', command=self.help).pack(side='left', padx=8)
         ttk.Button(controls, text='Export status / 匯出狀態', command=self.export).pack(side='left', padx=8)
-        ttk.Label(self.status_page, text='Stop persists across login. Blender and unsaved models stay open.\n停止設定會保留至下次登入；Blender 及未存檔模型保持開啟。', wraplength=920).pack(anchor='w')
+        ttk.Label(self.status_page, text='Open Blender yourself before Connect. Closing Blender keeps it closed; Stop disconnects only the tunnel.\n先自行開啟 Blender 再按連接。關閉 Blender 後不會自動重開；停止只會中斷通道。', wraplength=920).pack(anchor='w')
         self.setup()
         self.acceptance()
-        self.message = tk.StringVar(value='Candidate build: macOS hardware acceptance pending / 候選版：macOS 實機驗收未完成 · @kinghei.ego/@ai.alter (GitHub: kingheiego)')
+        self.message = tk.StringVar(value='Open Blender yourself, then check each connection layer / 自行開啟 Blender 後逐層檢查連線 · @kinghei.ego/@ai.alter (GitHub: kingheiego)')
         ttk.Label(root, textvariable=self.message, wraplength=1020, padding=18).pack(fill='x')
         root.after(50, self.poll)
         root.after(100, self.drain)
@@ -126,11 +126,25 @@ class App:
         page.columnconfigure(1, weight=1)
         ttk.Label(page, text='First setup only: paste your own existing key. Nothing creates a key or tunnel.\n首次設定才可輸入你已有的金鑰；本程式不建立金鑰或通道。', wraplength=920).grid(row=6, column=0, columnspan=2, sticky='w', pady=12)
         for row, label, fn in ((7, 'Save setup / 儲存設定', self.save_setup),
-                                (8, 'Prepare components / 準備元件', lambda: self.action(bootstrap.prepare_runtime))):
+                                (8, 'Prepare components / 準備元件', lambda: self.action(self.prepare_components)),
+                                (9, 'Disable old Blender auto-restart / 停用舊版 Blender 自動重開', self.retire_legacy)):
             button = ttk.Button(page, text=label, command=fn)
             button.grid(row=row, column=0, columnspan=2, sticky='w', pady=8)
             self.buttons.append(button)
-        ttk.Label(page, text='Preparing runtime components is refused while either managed service is loaded.\n服務已載入時會拒絕更新執行元件，不會替你停止 Blender。', wraplength=920).grid(row=9, column=0, columnspan=2, sticky='w', pady=12)
+        ttk.Label(page, text='Save and close Blender, then stop the tunnel before Prepare components. If an older install keeps reopening Blender, save your scene, Stop the tunnel, and use the legacy button once.\n準備元件前先儲存並關閉 Blender，再停止通道；若舊版仍會自動重開 Blender，先儲存場景、停止通道，再按上方舊版按鈕一次。', wraplength=920).grid(row=10, column=0, columnspan=2, sticky='w', pady=12)
+
+    def retire_legacy(self):
+        if messagebox.askyesno(
+                'Old Blender auto-restart / 舊版 Blender 自動重開',
+                'Save your Blender scene first. This will close only the old managed Blender instance and archive its auto-restart service. Continue?\n請先儲存 Blender 場景。此操作會關閉舊版受管理的 Blender，並備份及停用它的自動重開服務。是否繼續？'):
+            self.action(bridge.retire_legacy_blender_service)
+
+    def prepare_components(self):
+        if (bridge.require_service_known(bridge.CONFIG['blender_label'])['loaded']
+                or bridge.LEGACY_BLENDER_PLIST.exists()):
+            return {'ok': False,
+                    'message': 'Save Blender, Stop the tunnel, then use the old auto-restart button first / 先儲存 Blender、停止通道，再按停用舊版自動重開'}
+        return bootstrap.prepare_runtime()
 
     def acceptance(self):
         page = self.web_page

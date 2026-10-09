@@ -13,8 +13,8 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 | 代理負責 | 只有你負責 |
 |---|---|
 | 檢查 Mac、Blender、Python/Tk、迴環端口；安裝控制程式並報告實際寫入位置。 | 確認 ChatGPT 方案／工作空間／地區資格、開發者模式、Platform 通道權限及工作空間關聯；欠權限時請管理員處理。 |
-| 指引 Setup；服務停止時準備固定版本元件。 | 在 OpenAI／ChatGPT 介面建立自己的 connector app、Tunnel 和 runtime key。 |
-| 分別核對 Blender、通道程序與雲端輪詢；驗證真實唯讀網頁工具回覆。 | 在程式遮罩欄親自輸入 key；若 Blender 沒有回應，決定是否自行按 Connect（可能啟動受管理的 Blender）；按 Refresh tools；開全新對話；批准 ChatGPT 和 macOS 提示。 |
+| 指引 Setup；儲存並關閉 Blender、停止通道後，準備固定版本元件與日常 Blender 插件。 | 在 OpenAI／ChatGPT 介面建立自己的 connector app、Tunnel 和 runtime key。 |
+| 分別核對 Blender、通道程序與雲端輪詢；驗證真實唯讀網頁工具回覆。 | 在程式遮罩欄親自輸入 key；先自行開 Blender 再按 Connect；按 Refresh tools；開全新對話；批准 ChatGPT 和 macOS 提示。 |
 
 「30 秒測試」指一句快速發出的要求，不保證 30 秒內完成。先取得真實唯讀場景回覆，再送出：
 
@@ -22,7 +22,7 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 
 > Run the simplest test: make a simple cat out of a cube, then save it for me.
 
-恢復：先檢查 Blender，再按 `Connect / 一鍵連接`。若 Blender 無回應，只有你可決定是否按；Connect 可能啟動受管理的 Blender。
+恢復：先自行開 Blender，檢查 MCP 插件有回應後再按 `Connect / 一鍵連接`。Connect 不會啟動 Blender。
 在 ChatGPT 連接器設定按 `Refresh tools`。
 開全新對話；參閱[連線恢復](CONNECTION_RECOVERY.zh-Hant.md)。
 

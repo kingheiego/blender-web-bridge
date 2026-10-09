@@ -59,9 +59,11 @@ Click **Save setup / 儲存設定** while the tunnel is stopped. Existing Tunnel
 
 ## Step 4 — Prepare components
 
-On the same Setup tab, make sure **both managed services are inactive** and click **Prepare components / 準備元件**. This first-time action downloads pinned versions of the tunnel client and other runtime components and verifies each download against its SHA-256 in `dependencies.lock.json`. It creates an isolated runtime for the Python bridge. **The installer did not do this in Step 2.**
+On the same Setup tab, **save and close Blender and stop the tunnel**, then click **Prepare components / 準備元件**. This action downloads the pinned runtime and checks the primary artifacts against `dependencies.lock.json`. It backs up the regular Blender add-on and preferences, then installs and enables the pinned add-on in that profile. **The installer did not do this in Step 2.**
 
-The app **never stops a running service for you**. Stop the tunnel first and ensure its managed Blender service is inactive before preparation. Do not use Prepare components as an update button while either service is running or while you are relying on a live Blender session.
+The app **never stops Blender or the tunnel for you**. A running Blender session is refused even if its MCP port is not listening. Save your work before preparation; keep the versioned backup if the add-on setup fails.
+
+**Upgrading from a version that reopens Blender?** Save the open scene and press **Stop / 停止通道**. On Setup, press **Disable old Blender auto-restart / 停用舊版 Blender 自動重開** and confirm the warning. This archives only the recognized legacy Blender LaunchAgent and closes its managed instance. It does not change your tunnel identity or Keychain entry. Once Blender is closed, use Prepare components, then open your regular Blender yourself. A foreign or unrecognized service is preserved and reported instead of being stopped.
 
 **You should see:** component preparation finish successfully before Connect. **If not:** a service-loaded refusal means you must make the services inactive yourself; a checksum mismatch must be investigated, never bypassed. Use [troubleshooting](TROUBLESHOOTING_RC2.md) and [third-party inventory](THIRD_PARTY.md).
 
@@ -69,7 +71,7 @@ The historical [annotated setup page](SETUP_RC2.html) shows an older interface; 
 
 ## Step 5 — Connect and read all four status layers
 
-Open **Status / 狀態** and check Blender first. **Connect / 一鍵連接** may start a managed Blender if its port is unavailable; if Blender is unresponsive, decide yourself whether to allow that. Click Connect once, then **Check / 檢查**. Read every row independently:
+Open Blender yourself; its enabled MCP add-on starts the local socket. In **Status / 狀態**, check Blender first, then click **Connect / 一鍵連接** once and **Check / 檢查**. Connect will not open another Blender. Closing Blender stops the local socket and does not cause a restart. Read every row independently:
 
 | Layer | What “good” means | If it is not there |
 |---|---|---|

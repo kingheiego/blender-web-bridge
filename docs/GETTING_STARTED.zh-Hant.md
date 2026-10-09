@@ -59,9 +59,11 @@ cd blender-web-bridge
 
 ## 步驟 4：首次準備元件
 
-在同一個設定分頁，確保**兩個受管理服務均未運行**，按 **Prepare components / 準備元件**。首次執行會下載固定版本的通道客戶端及其他執行元件，按照 `dependencies.lock.json` 的 SHA-256 驗證，並為 Python bridge 準備隔離環境。**步驟 2 的安裝器不會代做這一步。**
+在同一個設定分頁，先**儲存並關閉 Blender、停止通道**，再按 **Prepare components / 準備元件**。此步會下載固定版本執行元件並核對主要檔案的 SHA-256，備份日常 Blender 的插件及偏好，然後安裝並啟用固定版本插件。**步驟 2 的安裝器不會代做這一步。**
 
-程式**不會替你停止正在運行的服務**。先停止通道，並確認受管理的 Blender 服務未啟動，才準備元件。不可在依賴使用中 Blender 工作時，把此按鈕當作即時更新。
+程式**不會替你關閉 Blender 或通道**。即使 MCP 端口未啟動，只要 Blender 仍在運行，準備元件也會拒絕；請先保存工作。插件設定失敗時保留版本化回復副本。
+
+**由會自動重開 Blender 的舊版升級？** 先儲存目前場景，按 **Stop / 停止通道**；到設定頁按 **Disable old Blender auto-restart / 停用舊版 Blender 自動重開**，閱讀提示後確認。它只備份及停用能核實身份的舊 Blender LaunchAgent，並關閉該受管理實例，不改通道身份或 Keychain。Blender 關閉後再按「準備元件」，之後自行開啟日常 Blender。無法核實來源的服務會保持原狀並顯示拒絕。
 
 **應看到：**元件準備成功，之後才連接。**若沒有：**若提示服務已載入，須自行令服務停止；若雜湊不符，先查原因，**不可略過檢查**。[故障排解](TROUBLESHOOTING_RC2.md) · [第三方元件](THIRD_PARTY.md)。
 
@@ -69,7 +71,7 @@ cd blender-web-bridge
 
 ## 步驟 5：連接並逐層檢查
 
-先在 **Status / 狀態**檢查 Blender。若端口不可用，**Connect / 一鍵連接**可能啟動受管理的 Blender；若 Blender 無回應，由你親自決定是否容許這樣做。按一次 Connect，再按 **Check / 檢查**。四層須分開理解：
+先自行開啟 Blender；已啟用的 MCP 插件會提供本機 socket。在 **Status / 狀態**檢查 Blender 後按一次 **Connect / 一鍵連接**，再按 **Check / 檢查**。Connect 不會另開 Blender；關閉 Blender 後 socket 會停止，Blender 亦不會自動重開。四層須分開理解：
 
 | 層級 | 甚麼才算正常 | 如果未正常 |
 |---|---|---|
