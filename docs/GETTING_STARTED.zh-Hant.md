@@ -2,6 +2,8 @@
 
 這份指南由下載 repo 開始，直到在 ChatGPT 真正收到 Blender 工具回覆。Python bridge 和桌面控制程式在**你的 Mac**運行；OpenAI Secure MCP Tunnel 將 ChatGPT 網頁要求送到本機。這不是代你託管 Blender 的服務。下列 `setup-tab-*.png` 是**舊版圖解，不是 rc2 介面的截圖**；操作時以本文列出的現行按鈕名稱為準。另可看[圖解網頁](SETUP_RC2.html)、[English guide](GETTING_STARTED.md)和[連結地圖](LINKS.md)。
 
+**支援範圍：只提供俾 MacBook（macOS）使用。** 本指南及安裝器不提供 Windows 支援或驗收；Windows 使用者須自行移植原始碼，並在自己電腦完成測試。
+
 ## 步驟 0：確認所需條件
 
 1. 從 [Blender 官方下載頁](https://www.blender.org/download/)安裝 macOS 版。先確認自己能開啟 `Blender.app`。

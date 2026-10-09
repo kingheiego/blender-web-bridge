@@ -2,6 +2,7 @@
 
 ## Goal
 Install the local controller and verify each connection layer without disturbing existing Blender work.
+The supported product target is **MacBook (macOS) only**. Do not treat Windows as a required setup or test target; Windows users must port and validate the source themselves.
 The public one-line handoff is: “On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.” Local installation can be agent-assisted; complete setup is not one-click or fully hands-off.
 
 ## Prerequisites to CHECK

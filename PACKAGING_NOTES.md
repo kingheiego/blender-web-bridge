@@ -8,4 +8,6 @@ The installer copies a fixed set of app files and selected guide assets into the
 
 The macOS bundle keeps its stable `Blender Web Bridge.app` filename and identifier; its visible display name and window title are **Blender Web Bridge / Blender 網頁橋接器**. / macOS bundle 檔名與識別字維持不變，App 顯示名稱與視窗標題則使用完整中英文。
 
+This package is provided for **MacBook (macOS) only**. Windows packaging, setup and functional verification are left to Windows users who choose to port the source. / 此封裝只提供俾 **MacBook（macOS）** 使用；Windows 的封裝、設定與功能驗證由自行移植的使用者負責。
+
 `PUBLIC_SOURCE_SHA256.json` records the minimal allowlisted source ZIP, not every historical guide or showcase file in the GitHub checkout. / `PUBLIC_SOURCE_SHA256.json` 核對的是最小白名單原始碼 ZIP，不涵蓋 GitHub checkout 內每份歷史指南或展示檔。

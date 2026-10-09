@@ -16,6 +16,8 @@ On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new
 
 **Public prerelease; the manual Blender lifecycle passed on one Mac. / 公開測試版；手動開關與連線已於一部 Mac 實測。** See [acceptance](docs/ACCEPTANCE.md) for exact limits.
 
+**Supported platform / 支援平台：MacBook（macOS）only / 只支援 MacBook。** Windows is not provided or tested by this project; anyone using Windows must port the source and verify it themselves. / 本 Project 不提供或驗收 Windows 版本，Windows 使用者須自行移植及測試。
+
 A per-user macOS desktop controller for your existing private Blender tunnel.
 One-click Connect and Stop, conservative four-layer status, and transactional updates.
 用一個 macOS 視窗管理自己的 Blender 私人通道：一鍵連接／停止、四層狀態，以及可還原更新。

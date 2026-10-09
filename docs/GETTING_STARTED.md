@@ -2,6 +2,8 @@
 
 This guide takes you from a downloaded repo to a real ChatGPT-to-Blender tool reply. The bridge runs on **your own Mac**; OpenAI Secure MCP Tunnel carries requests from the ChatGPT web app to the local Python bridge. It is a per-user controller, not a hosted Blender service. The annotated `setup-tab-*.png` pictures below are **historical guide images, not screenshots of this rc2 interface**; follow the current button labels in the text. The [setup page](SETUP_RC2.html) has the same historical images. [繁體中文版](GETTING_STARTED.zh-Hant.md) · [link map](LINKS.md).
 
+**Supported platform: MacBook (macOS) only.** This guide and installer do not support or test Windows. Windows users must port the source and verify the result themselves.
+
 ## Step 0 — Check the prerequisites
 
 1. Install [Blender for macOS](https://www.blender.org/download/). You should be able to open `Blender.app` yourself.
