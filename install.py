@@ -29,9 +29,9 @@ from safeio import FileLock, atomic_bytes, atomic_json, checked_path, identity, 
 
 MIN_PYTHON = (3, 10)
 RECOMMENDED_PYTHON = (3, 11)
-VERSION = '2.0.2-rc2'
+VERSION = '2.0.2-rc3'
 BUNDLE_SHORT_VERSION = '2.0.2'
-BUNDLE_BUILD = '20204'
+BUNDLE_BUILD = '20205'
 APP_NAME = 'Blender Web Bridge'
 APP_DISPLAY_NAME = 'Blender Web Bridge / Blender 網頁橋接器'
 DEFAULT_TUNNEL_LABEL = 'org.blenderwebbridge.tunnel'

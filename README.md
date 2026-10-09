@@ -1,4 +1,4 @@
-# Blender Web Bridge / Blender 網頁橋接器 · 2.0.2-rc2
+# Blender Web Bridge / Blender 網頁橋接器 · 2.0.2-rc3
 
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
@@ -7,6 +7,10 @@ Connect the ChatGPT web app to Blender on your own Mac through an OpenAI Secure 
 The desktop window and macOS app display the full English and Traditional Chinese name: **Blender Web Bridge / Blender 網頁橋接器**. The existing `Blender Web Bridge.app` bundle filename stays unchanged so upgrades and rollback still find the same app.
 
 **Supported platform / 支援平台：MacBook（macOS）only / 只提供俾 MacBook 使用。** The installer and controller are built for MacBook. Windows is outside this project's support and testing scope; Windows users must adapt the source and verify it themselves. / Windows 不屬本 Project 的支援或驗收範圍；如要在 Windows 使用，須自行移植及測試。
+
+**Pinned runtime verified on October 9, 2026 / 2026-10-09 核對的固定版本：** OpenAI `tunnel-client` 0.0.16、Astral `uv` 0.12.24、`mcp-for-blender` 2.1.9。主要下載檔按 [`dependencies.lock.json`](dependencies.lock.json) 的 SHA-256 核對；它們會在明確升級時更新，不會在背景自動追新版。
+
+On the tested MacBook, the 0.0.16 tunnel returned real ChatGPT scene results; Blender stayed closed after Quit and reconnected when manually opened again. / 已驗收的 MacBook 使用 0.0.16 通道真實讀到場景；關閉 Blender 後不會自動重開，手動再開後同一通道可重連。
 
 **公開測試版 / Public prerelease.** 本版改為由使用者自行開啟 Blender，關閉後不再由背景服務重開。Prepare components 會備份日常 Blender 偏好、安裝並啟用固定版本 MCP 插件。Mac 已實測關閉、手動重開及 ChatGPT 工具重連；完整驗收範圍見 [Validation](VALIDATION.md)。這不是 OS 沙盒；請只在自己的可信任環境使用，同一 Blender 實例一次只由一個對話改寫。
 

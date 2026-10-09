@@ -134,13 +134,15 @@ def _prepare_runtime(notify=lambda message: None):
     downloads = RUNTIME / "downloads"
     private_dir(downloads)
     lock = json.loads(package_file("dependencies.lock.json").read_text())
-    target = lock["artifacts"][architecture()]
+    arch = architecture()
+    target = lock["artifacts"][arch]
     notify("Downloading and verifying uv / 下載及驗證 uv")
-    uv_archive = download(target["uv"], downloads / "uv.tar.gz")
+    uv_archive = download(target["uv"], downloads / f"uv-{lock['versions']['uv']}-{arch}.tar.gz")
     uv = RUNTIME / "uv"
     extract_file(uv_archive, "uv", uv)
     notify("Downloading and verifying tunnel-client / 下載及驗證通道程式")
-    tunnel_archive = download(target["tunnel"], downloads / "tunnel-client.zip")
+    tunnel_archive = download(
+        target["tunnel"], downloads / f"tunnel-client-{lock['versions']['tunnel_client']}-{arch}.zip")
     tunnel_dir = RUNTIME / "tunnel-client"
     private_dir(tunnel_dir)
     extract_file(tunnel_archive, "tunnel-client", tunnel_dir / "tunnel-client")

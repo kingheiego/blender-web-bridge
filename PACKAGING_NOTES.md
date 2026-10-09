@@ -10,4 +10,6 @@ The macOS bundle keeps its stable `Blender Web Bridge.app` filename and identifi
 
 This package is provided for **MacBook (macOS) only**. Windows packaging, setup and functional verification are left to Windows users who choose to port the source. / 此封裝只提供俾 **MacBook（macOS）** 使用；Windows 的封裝、設定與功能驗證由自行移植的使用者負責。
 
+The current pinned downloads are `tunnel-client` 0.0.16, `uv` 0.12.24 and `mcp-for-blender` 2.1.9. Cache filenames include version and architecture so upgrading does not mistake an older verified archive for a new one. / 目前固定版本及其架構／版本化快取檔名見 `dependencies.lock.json`；不會把舊下載誤當新版。
+
 `PUBLIC_SOURCE_SHA256.json` records the minimal allowlisted source ZIP, not every historical guide or showcase file in the GitHub checkout. / `PUBLIC_SOURCE_SHA256.json` 核對的是最小白名單原始碼 ZIP，不涵蓋 GitHub checkout 內每份歷史指南或展示檔。

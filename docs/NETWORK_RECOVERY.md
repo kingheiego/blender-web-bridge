@@ -8,13 +8,14 @@ The UI polls local health only. It neither discovers nor pins the public IP.
 launchd 是唯一程序監督者；daemon 持有鎖後直接 exec 固定版本客戶端，不增加重啟迴圈。
 UI 只觀察本機狀態，不偵測或固定公網 IP。
 
-Primary-source review: tunnel-client v0.0.15,
+Primary-source review: tunnel-client v0.0.16 (the referenced poller and metrics source
+files were unchanged from v0.0.15),
 `pkg/controlplane/internal/poller.go` (blob `f5068e06d758369a2f9f20e842d2d54cc86ca463`) and
 `pkg/controlplane/internal/metrics.go` (blob `47f4dafaa2ac0d9c9d65d0c3d7380887feb93971`).
 The existing poller uses exponential backoff (200 ms minimum, 10 s maximum), jitter,
 and Retry-After handling. Successful polling resets that backoff. These are source
 observations, not a new hardware/VPN experiment. Source:
-https://github.com/openai/tunnel-client/blob/v0.0.15/pkg/controlplane/internal/poller.go
+https://github.com/openai/tunnel-client/blob/v0.0.16/pkg/controlplane/internal/poller.go
 
 The LaunchAgent retries unsuccessful process exits with a 60-second throttle.
 Successful exit, missing credentials or an explicit Stop does not create a restart
@@ -66,6 +67,3 @@ Observe naturally occurring outages and recovery only within separately approved
 local acceptance. Do not use restart loops to evade region policy.
 Official region information (checked 2026-09-29):
 https://help.openai.com/en/articles/7947663-chatgpt-supported-countries
-
----
-Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
