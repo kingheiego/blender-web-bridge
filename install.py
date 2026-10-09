@@ -29,15 +29,15 @@ from safeio import FileLock, atomic_bytes, atomic_json, checked_path, identity, 
 
 MIN_PYTHON = (3, 10)
 RECOMMENDED_PYTHON = (3, 11)
-VERSION = '2.0.1-rc3'
-BUNDLE_SHORT_VERSION = '2.0.1'
-BUNDLE_BUILD = '20103'
+VERSION = '2.0.2-rc1'
+BUNDLE_SHORT_VERSION = '2.0.2'
+BUNDLE_BUILD = '20203'
 APP_NAME = 'Blender Web Bridge'
 DEFAULT_TUNNEL_LABEL = 'org.blenderwebbridge.tunnel'
 LABEL_RE = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]{0,199}')
 APP_FILES = ('desktop.py', 'bridge.py', 'health.py', 'safeio.py', 'settings.py',
              'bootstrap.py', 'keychain_store.py', 'mcp_entry.py', 'workflow.py',
-             'start_blender.py')
+             'enable_addon.py')
 DOC_FILES = ('README_RC2.zh-Hant.md', 'SETUP_RC2.html', 'TROUBLESHOOTING_RC2.md',
              'EXAMPLES_RC2.md', 'SECURITY_RC2.md', 'ACCEPTANCE.md', 'NETWORK_RECOVERY.md')
 ASSET_FILES = tuple('docs/images/setup-tab-%d.png' % i for i in range(4)) + (

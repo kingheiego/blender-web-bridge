@@ -1,5 +1,8 @@
 # Author / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
-"""Run inside an isolated Blender instance, retaining its normal UI event loop."""
+"""Legacy isolated Blender entrypoint, retained for rollback only.
+
+The manual-start installer does not package or call this module.
+"""
 import json
 import os
 from pathlib import Path

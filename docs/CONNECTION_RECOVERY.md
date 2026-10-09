@@ -5,7 +5,7 @@ If ChatGPT replies **“Session terminated”** when you ask about Blender, the 
 ## One-click recovery
 
 1. Open **Blender Web Bridge** on your Mac. If it is already open, go to **Status**.
-2. Check Blender first. If it responds to a read-only query, press **Connect**. If Blender is unresponsive, decide whether to press Connect yourself: it may start a managed Blender when the port is unavailable. If the tunnel still does not recover, press **Stop**, then **Connect** once after the same check. Stop affects the tunnel, not Blender.
+2. Open Blender yourself and wait for its MCP add-on to respond, then press **Connect**. Connect will not start Blender. If the tunnel still does not recover, press **Stop**, then **Connect** once after the same check. Stop affects the tunnel, not Blender.
 3. Press **Check**. Blender should respond; the tunnel should have a running PID (`bridge.py status` shows it); the cloud layer should show a fresh successful poll when its required metrics are available. A local `/readyz` result alone does not prove that ChatGPT works.
 4. In ChatGPT settings for your existing connector, press **Refresh tools**. Start a **new conversation**, select the connector, and ask a read-only question such as “What is the name of my current Blender scene?” Confirm a real tool reply before resuming edits.
 

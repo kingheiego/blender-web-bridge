@@ -14,6 +14,7 @@ import zipfile
 import contextlib
 import stat
 import tempfile
+import uuid
 from safeio import (FileLock, UnsafePath, atomic_bytes, atomic_json, checked_path,
                     private_dir, read_regular_bytes, fsync_dir)
 from settings import ROOT, RUNTIME, STATE, CONFIG, validate
@@ -149,7 +150,10 @@ def _prepare_runtime(notify=lambda message: None):
     if not python.exists():
         private_dir(venv.parent)
         run([str(uv), "venv", "--python", lock["versions"]["python"], str(venv)])
-    wheel = download(lock["mcp_wheel"], downloads / "mcp_for_blender-2.1.0-py3-none-any.whl")
+    wheel = download(
+        lock["mcp_wheel"],
+        downloads / f"mcp_for_blender-{lock['versions']['mcp_for_blender']}-py3-none-any.whl",
+    )
     run([str(uv), "pip", "install", "--python", str(python),
          "-r", str(package_file("requirements.lock")), str(wheel)])
     scripts = RUNTIME / "blender-userconfig/scripts/addons"
@@ -166,6 +170,47 @@ def _prepare_runtime(notify=lambda message: None):
          "hash_verification_scope": ["uv", "tunnel-client", "mcp-for-blender wheel"],
          "python_transitive_hashes_verified": False})
     return {"ok": True, "message": "Components ready. Complete Setup / 元件已就緒，請完成設定"}
+
+
+def blender_process_running():
+    """A Blender without an MCP listener is still an open user session."""
+    result = subprocess.run(["pgrep", "-x", "Blender"], capture_output=True, timeout=8)
+    if result.returncode not in (0, 1):
+        raise RuntimeError("Cannot verify whether Blender is open")
+    return result.returncode == 0
+
+
+def install_user_addon(notify=lambda message: None):
+    """Enable the pinned add-on in regular Blender, preserving its preferences."""
+    lock = json.loads(package_file("dependencies.lock.json").read_text())
+    version = lock["versions"]["mcp_for_blender"]
+    wheel = checked_path(RUNTIME / "downloads" / f"mcp_for_blender-{version}-py3-none-any.whl")
+    verify(wheel, lock["mcp_wheel"]["sha256"])
+    executable = checked_path(Path(CONFIG["blender_app"]) / "Contents/MacOS/Blender")
+    if not executable.is_file():
+        raise RuntimeError("Configured Blender executable is unavailable")
+    private_dir(STATE / "backups")
+    backup = checked_path(STATE / "backups" / ("regular-addon-" + uuid.uuid4().hex))
+    env = os.environ.copy()
+    for key in ("BLENDER_USER_CONFIG", "BLENDER_USER_SCRIPTS", "BLENDER_USER_ADDONS",
+                "BLENDERMCP_ADDONS_DIR"):
+        env.pop(key, None)
+    env.update(BWB_MCP_WHEEL=str(wheel),
+               BWB_MCP_WHEEL_SHA256=lock["mcp_wheel"]["sha256"],
+               BWB_MCP_BACKUP=str(backup),
+               BLENDER_MCP_SAFE_MODE="1", DISABLE_TELEMETRY="true")
+    notify("Enabling MCP in your regular Blender / 正在日常 Blender 啟用 MCP")
+    try:
+        result = subprocess.run(
+            [str(executable), "--background", "--python-exit-code", "1",
+             "--python", str(ROOT / "enable_addon.py")],
+            env=env, capture_output=True, text=True, timeout=120)
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise RuntimeError("Could not finish Blender add-on setup; existing preferences preserved") from exc
+    receipt = backup / "receipt.json"
+    if result.returncode or not receipt.is_file():
+        raise RuntimeError("Blender add-on setup failed; see its preserved backup before retrying")
+    return json.loads(receipt.read_text())
 
 
 def write_profile():
@@ -223,7 +268,11 @@ def prepare_runtime(notify=lambda message: None):
         local = blender_status()
         if local.get("ok") or local.get("busy") or local.get("state") != "unavailable":
             raise RuntimeError("Blender port is active or uncertain; runtime left unchanged")
-        return _prepare_runtime(notify)
+        if blender_process_running():
+            raise RuntimeError("Close and save Blender before preparing components")
+        result = _prepare_runtime(notify)
+        install_user_addon(notify)
+        return result
 
 
 if __name__ == "__main__":

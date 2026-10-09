@@ -12,7 +12,7 @@ Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 On my Mac, clone https://github.com/kingheiego/blender-web-bridge.git into a new directory (or use an existing checkout without overwriting it), read AGENTS.md and CLAUDE.md if you are Claude Code, then follow them to install and verify Blender Web Bridge. Stop and ask me only for HUMAN ONLY steps.
 ```
 
-本版是 **2.0.1-rc3 程式候選版**，不是已完成 Mac 實機驗收的發佈版。
+本版是 **2.0.2-rc1 程式候選版**；本頁歷史驗收紀錄屬舊版本，實機驗收另以本次部署結果為準。
 
 解壓後先看 [首次設定圖解](SETUP_RC2.html)，再雙擊 `Install.command`。需要自行安裝 Blender、
 Python 3.10 或以上及 Tk，建議 3.11 或以上；MCP 另用固定 Python 3.11 環境。
@@ -22,12 +22,19 @@ Python 3.10 或以上及 Tk，建議 3.11 或以上；MCP 另用固定 Python 3.
 通道程序，逐目標暫存，再以交易紀錄還原。還原失敗會拒絕繼續更新，不會假報成功。
 
 首次使用在設定頁提供自己的既有通道資料。已存在的身份與金鑰保持不變，留空不代表刪除。
-「準備元件」只供兩個專用服務均未啟動時使用；服務仍在運行會拒絕，而不是替你關閉 Blender。
-已有元件的現用安裝不需要再次下載元件。
+「準備元件」前先儲存並關閉 Blender，再停止通道。此步會核對固定版本下載、
+為日常 Blender 的插件及偏好建立回復副本，並將 MCP 插件安裝及啟用；
+Blender 或通道仍在運行時會拒絕，不會替你強行關閉。
+啟用插件的「Auto-Start Server」後，每次自行開 Blender 都會提供本機 socket，
+關閉 Blender 則停止，不會自動重開。
+
+若從會自動重開 Blender 的舊版升級，先儲存場景並停止通道；到設定頁按
+「停用舊版 Blender 自動重開」，確認後它只會備份及停止已核實的舊服務。
+待舊實例關閉，再執行「準備元件」。
 
 完整安裝不是一鍵全自動。本人須確認 ChatGPT 資格、開發者模式、Platform 通道權限與工作空間關聯，
-建立 App、通道及金鑰，在遮罩欄親自輸入金鑰，批准 ChatGPT／macOS 提示、刷新工具並開新對話選連接器。端口不可用時，
-Connect 可能啟動受管理的 Blender。一鍵連接後有四層：Blender 本機回覆、通道程序、雲端 poll 證據、ChatGPT 網頁工具結果。
+建立 App、通道及金鑰，在遮罩欄親自輸入金鑰，批准 ChatGPT／macOS 提示、刷新工具並開新對話選連接器。
+先自行開啟 Blender；MCP 插件會啟動本機 socket，之後才按 Connect。Connect 不會自行啟動 Blender，關閉 Blender 後亦不會自動重開。一鍵連接後有四層：Blender 本機回覆、通道程序、雲端 poll 證據、ChatGPT 網頁工具結果。
 `/readyz` 不代表雲端正常；metrics 缺少、異常或過期均顯示未知。持續收到明確地區 403 時
 會顯示原因，但不重啟通道、不換 API key、不切換出口。
 
@@ -51,4 +58,4 @@ Connect 可能啟動受管理的 Blender。一鍵連接後有四層：Blender �
 
 Author / 作者: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 
-本版新增路徑安全修正。完整來源測試 202 項（200 通過、2 略過），並完成 Mac 隔離元件準備、安裝／升級／精確還原及本機 MCP 唯讀驗證。範圍與未測項目見[驗收狀態](ACCEPTANCE.md)。固定檔名中的 RC2 保留以相容現有安裝器。
+本版改為手動開關日常 Blender，固定 MCP 2.1.9。完整來源測試 207 項（205 通過、2 項既有略過）；Mac 已做真實 ChatGPT 工具查詢及關閉／重開驗證，公開來源已做全新安裝、升級與 rollback 測試。範圍與未測項目見[驗收狀態](ACCEPTANCE.md)。固定檔名中的 RC2 保留以相容現有安裝器。
