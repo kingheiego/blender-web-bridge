@@ -29,10 +29,11 @@ from safeio import FileLock, atomic_bytes, atomic_json, checked_path, identity, 
 
 MIN_PYTHON = (3, 10)
 RECOMMENDED_PYTHON = (3, 11)
-VERSION = '2.0.2-rc1'
+VERSION = '2.0.2-rc2'
 BUNDLE_SHORT_VERSION = '2.0.2'
-BUNDLE_BUILD = '20203'
+BUNDLE_BUILD = '20204'
 APP_NAME = 'Blender Web Bridge'
+APP_DISPLAY_NAME = 'Blender Web Bridge / Blender 網頁橋接器'
 DEFAULT_TUNNEL_LABEL = 'org.blenderwebbridge.tunnel'
 LABEL_RE = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]{0,199}')
 APP_FILES = ('desktop.py', 'bridge.py', 'health.py', 'safeio.py', 'settings.py',
@@ -176,7 +177,7 @@ def build_bundle(source, target, final_data, python=None, version=BUNDLE_SHORT_V
     args = shlex.join([python or sys.executable, str(final_data / 'app' / 'desktop.py')])
     script = '#!/bin/sh\nexport BLENDER_WEB_BRIDGE_DATA=' + shlex.quote(str(final_data)) + '\nexec ' + args + ' "$@"\n'
     atomic_bytes(executable, script.encode(), 0o755)
-    info = {'CFBundleName': APP_NAME, 'CFBundleDisplayName': APP_NAME,
+    info = {'CFBundleName': APP_NAME, 'CFBundleDisplayName': APP_DISPLAY_NAME,
             'CFBundleIdentifier': 'org.blenderwebbridge.app', 'CFBundleExecutable': 'BlenderWebBridge',
             'CFBundlePackageType': 'APPL', 'CFBundleShortVersionString': version,
             'CFBundleVersion': build, 'NSHighResolutionCapable': True}

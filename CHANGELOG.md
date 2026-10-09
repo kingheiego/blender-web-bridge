@@ -1,5 +1,9 @@
 # Changelog / 變更紀錄
 
+## 2.0.2-rc2 · 2026-10-09
+
+- 面板視窗、頁首和 macOS App 顯示名稱改為完整中英文：`Blender Web Bridge / Blender 網頁橋接器`；測試畫面名稱亦不再使用 `BWB／UI／QA` 簡寫。維持既有 bundle 路徑及通道身份，避免令舊版升級失效。
+
 ## 2.0.2-rc1 · 2026-10-09
 
 - 改為使用者自行開啟日常 Blender；Connect 只連通道，不建立或重啟 Blender 的 LaunchAgent。

@@ -1,4 +1,4 @@
-# Blender Web Bridge · 2.0.2-rc1
+# Blender Web Bridge / Blender 網頁橋接器 · 2.0.2-rc2
 
 Watermark / 作者水印: @kinghei.ego/@ai.alter (GitHub: kingheiego)
 

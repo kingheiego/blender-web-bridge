@@ -6,4 +6,6 @@ Save and close Blender and stop the tunnel before Prepare components. That actio
 
 The installer copies a fixed set of app files and selected guide assets into the installed support folder; the complete, current guides and link map live in this GitHub repository. For the supported first-run path, begin at [README](README.md) or [Getting started / 入門指南](docs/GETTING_STARTED.md). / 安裝器只複製固定清單的程式與部分指南素材到本機支援資料夾；完整的最新指南和連結地圖以本 GitHub repo 為準。首次使用請由 [README](README.md) 或[入門指南](docs/GETTING_STARTED.zh-Hant.md)開始。
 
+The macOS bundle keeps its stable `Blender Web Bridge.app` filename and identifier; its visible display name and window title are **Blender Web Bridge / Blender 網頁橋接器**. / macOS bundle 檔名與識別字維持不變，App 顯示名稱與視窗標題則使用完整中英文。
+
 `PUBLIC_SOURCE_SHA256.json` records the minimal allowlisted source ZIP, not every historical guide or showcase file in the GitHub checkout. / `PUBLIC_SOURCE_SHA256.json` 核對的是最小白名單原始碼 ZIP，不涵蓋 GitHub checkout 內每份歷史指南或展示檔。

@@ -19,7 +19,8 @@ import keychain_store
 import settings
 from safeio import FileLock, atomic_json, checked_path
 
-VERSION = '2.0.2-rc1'
+VERSION = '2.0.2-rc2'
+DISPLAY_NAME = 'Blender Web Bridge / Blender 網頁橋接器'
 
 
 def public_status(snapshot):
@@ -57,7 +58,7 @@ class App:
         self.root, self.events = root, queue.Queue()
         self.busy = self.polling = False
         self.last, self.observed = None, 0.0
-        root.title('Blender Web Bridge · ' + VERSION)
+        root.title(DISPLAY_NAME + ' · ' + VERSION)
         root.geometry('1080x800')
         root.minsize(960, 720)
         style = ttk.Style()
@@ -65,7 +66,7 @@ class App:
             style.theme_use('aqua')
         heading = ttk.Frame(root, padding=20)
         heading.pack(fill='x')
-        ttk.Label(heading, text='Blender Web Bridge', font=('', 22, 'bold')).pack(anchor='w')
+        ttk.Label(heading, text=DISPLAY_NAME, font=('', 22, 'bold')).pack(anchor='w')
         ttk.Label(heading, text='One private connection · 四層狀態獨立驗證 · No network-setting changes / 不更改網絡設定').pack(anchor='w', pady=6)
         self.tabs = ttk.Notebook(root)
         self.tabs.pack(fill='both', expand=True, padx=20, pady=6)
